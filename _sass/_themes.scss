@@ -102,4 +102,15 @@ $vimeo-color                : #1ab7ea;
 $vine-color                 : #00bf8f;
 $youtube-color              : #bb0000;
 $xing-color                 : #006567;
-   
+
+:root {
+  --global-bg-color: #fdfdfd;         // off-white
+  --global-text-color: #222222;       // dark gray
+  --global-link-color: #1a73e8;       // blue links
+  --global-link-hover-color: #0c56d0; // darker on hover
+  --global-border-color: #dddddd;
+  --global-fig-caption-color: #666666;
+  --global-code-text-color: #c7254e;
+  --global-code-background-color: #f9f2f4;
+  --global-thead-color: #eeeeee;
+}
