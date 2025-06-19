@@ -11,48 +11,114 @@ author_profile: true
   <a href="https://orcid.org/0000-0003-3184-5295"><img src="https://img.shields.io/badge/ORCID-Profile-A6CE39?logo=orcid&style=for-the-badge"></a>
 </p>
 
-<div style="display: flex; gap: 1rem; margin-bottom: 2rem; align-items: flex-start; flex-wrap: wrap;">
+---
 
+### 1. Decoding Biomolecular Condensate Dynamics: An Energy Landscape Approach
+
+<div style="display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
   <div style="flex: 2;">
-    <p style="margin: 0; font-size: 1.05em;"><strong>Decoding Biomolecular Condensate Dynamics: An Energy Landscape Approach</strong></p>
-    <p><em>S. Biswas and D.A. Potoyan</em><br>
-    <strong>PLOS Comp. Bio.</strong> 21(2): e1012826, 2025<br>
+    <p><strong>Authors:</strong> S. Biswas and D.A. Potoyan<br>
+    <strong>Journal:</strong> PLOS Comp. Bio. 21(2): e1012826, 2025<br>
     <a href="https://doi.org/10.1371/journal.pcbi.1012826" target="_blank">DOI: 10.1371/journal.pcbi.1012826</a>
     </p>
   </div>
-
   <div style="flex: 1; text-align: right;">
     <img src="/images/publications/energy-landscape.PNG" alt="Energy Landscape" style="max-width: 100%; max-height: 120px;">
   </div>
-
 </div>
 
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
-{% endif %}
+---
 
-{% include base_path %}
+### 2. Molecular drivers of aging in biomolecular condensates
 
-<!-- New style rendering if publication categories are defined -->
-{% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
-      {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single.html %}
-    {% endfor %}
-  {% endfor %}
-{% else %}
-  {% for post in site.publications reversed %}
-    {% include archive-single.html %}
-  {% endfor %}
-{% endif %}
+<div style="display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+  <div style="flex: 2;">
+    <p><strong>Authors:</strong> S. Biswas and D.A. Potoyan<br>
+    <strong>Journal:</strong> PRX Life 2(2): 023011, 2024<br>
+    <a href="https://journals.aps.org/prxlife/accepted/a4079I20Z5c1d70af0531f644509ce1c531c1c63b" target="_blank">DOI</a>
+    </p>
+  </div>
+  <div style="flex: 1; text-align: right;">
+    <img src="/images/publications/condensate-aging.png" alt="Condensate Aging" style="max-width: 100%; max-height: 120px;">
+  </div>
+</div>
 
+---
 
+### 3. Resonant barrier crossing in a modulated classical double well potential
 
+<div style="display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+  <div style="flex: 2;">
+    <p><strong>Authors:</strong> S. Biswas and J.K. Bhattacharjee<br>
+    <strong>Journal:</strong> Physics Letters A 485: 129083, 2023<br>
+    <a href="https://doi.org/10.1016/j.physleta.2023.129083" target="_blank">DOI</a>
+    </p>
+  </div>
+  <div style="flex: 1; text-align: right;">
+    <img src="/images/publications/double-well.png" alt="Double Well" style="max-width: 100%; max-height: 120px;">
+  </div>
+</div>
+
+---
+
+### 4. Thermodynamics predicts a stable microdroplet phase..
+
+<div style="display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+  <div style="flex: 2;">
+    <p><strong>Authors:</strong> S. Biswas, B. Mukherjee, B. Chakrabarti<br>
+    <strong>Journal:</strong> Soft Matter 18(42): 8117–8123, 2022<br>
+    <a href="https://doi.org/10.1039/D2SM01101H" target="_blank">DOI</a>
+    </p>
+  </div>
+  <div style="flex: 1; text-align: right;">
+    <img src="/images/publications/microdroplet.png" alt="Microdroplet Phase" style="max-width: 100%; max-height: 120px;">
+  </div>
+</div>
+
+---
+
+### 5. Instability zones in the dynamics of a quantum mechanical quasiperiodic parametric oscillator
+
+<div style="display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+  <div style="flex: 2;">
+    <p><strong>Authors:</strong> S. Biswas, P. Chowdhury, J.K. Bhattacharjee<br>
+    <strong>Journal:</strong> CNSNS 93: 105537, 2021<br>
+    <a href="https://doi.org/10.1016/j.cnsns.2020.105537" target="_blank">DOI</a>
+    </p>
+  </div>
+  <div style="flex: 1; text-align: right;">
+    <img src="/images/publications/qmpo.png" alt="Quantum Oscillator" style="max-width: 100%; max-height: 120px;">
+  </div>
+</div>
+
+---
+
+### 6. Higher-order Mathieu equations in quantum oscillators
+
+<div style="display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+  <div style="flex: 2;">
+    <p><strong>Authors:</strong> S. Biswas and J.K. Bhattacharjee<br>
+    <strong>Journal:</strong> Nonlinear Dynamics 96: 737–750, 2019<br>
+    <a href="https://doi.org/10.1007/s11071-019-04818-9" target="_blank">DOI</a>
+    </p>
+  </div>
+  <div style="flex: 1; text-align: right;">
+    <img src="/images/publications/mathieu.png" alt="Mathieu Equation" style="max-width: 100%; max-height: 120px;">
+  </div>
+</div>
+
+---
+
+### 7. Propagation of wave packets in quantum parametric oscillators
+
+<div style="display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+  <div style="flex: 2;">
+    <p><strong>Authors:</strong> S. Biswas, R. Chattopadhyay, J.K. Bhattacharjee<br>
+    <strong>Journal:</strong> Physics Letters A 382(18): 1202–1206, 2018<br>
+    <a href="https://doi.org/10.1016/j.physleta.2018.03.011" target="_blank">DOI</a>
+    </p>
+  </div>
+  <div style="flex: 1; text-align: right;">
+    <img src="/images/publications/wavepacket.png" alt="Wave Packet" style="max-width: 100%; max-height: 120px;">
+  </div>
+</div>
