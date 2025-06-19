@@ -14,23 +14,25 @@ My work combines coarse-grained molecular dynamics, continuum and field-theoreti
 Beyond research, I am passionate about scientific communication and mentoring. I have actively contributed to teaching during my PhD, currently mentor junior researchers, and maintain open-access tutorial repositories on GitHub. I am committed to collaborative research, mentoring, and advancing computational tools for the soft matter and biophysics community. 
 
 
-<div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem; margin-top: 3rem; font-size: 0.95em; line-height: 1.6;">
+<div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-top: 3rem; font-size: 0.85em; line-height: 1.0;">
 
   <div style="flex: 1; min-width: 200px;">
     <h3>Research Interests</h3>
     <ul>
+      <li>Soft Matter Physics</li>
+      <li>Biological Physics</li>
       <li>Biomolecular Condensate</li>
       <li>Polymer Physics</li>
-      <li>Soft Matter</li>
-      <li>Numerical Modeling</li>
-      <li>Machine Learning</li>
+      <li>Membrane, Gels</li>
+      <li>Non-equilibrium Statistical Physics</li>
+      <li>Nonlinear Dynamics</li>
     </ul>
   </div>
 
-  <div style="flex: 1; min-width: 200px;">
+  <div style="flex: 1; min-width: 300px;">
     <h3>Education</h3>
     <ul>
-      <li>Ph.D. Physics <br> The University of Sheffield, UK</li>
+      <li>PhD in Physics, <a href="https://etheses.whiterose.ac.uk/id/eprint/30490/">Thesis</a> <br> <a href="https://www.sheffield.ac.uk/mps">The University of Sheffield</a>, UK</li>
       <li>Masters in Physics<br>University of Hyderabad, India</li>
     </ul>
   </div>
@@ -39,7 +41,7 @@ Beyond research, I am passionate about scientific communication and mentoring. I
     <h3>Contact</h3>
     <p>
       Email: <a href="mailto:subhadip@iastate.edu">subhadip@iastate.edu</a><br>
-      Phone: +1 (515) xxx xxxx<br>
+      <!-- Phone: +1 (515) xxx xxxx<br> -->
       Office: 1605 Gilman Hall, Department of Chemistry,<br>
       Iowa State University, Ames IA, USA
     </p>
