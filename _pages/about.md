@@ -19,9 +19,9 @@ Beyond research, I am passionate about scientific communication and mentoring. I
   <div style="flex: 1; min-width: 200px;">
     <h3>Research Interests</h3>
     <ul>
-      <li>Air-Sea Interactions</li>
-      <li>Geophysical Fluid Dynamics</li>
-      <li>Turbulence</li>
+      <li>Biomolecular Condensate</li>
+      <li>Polymer Physics</li>
+      <li>Soft Matter</li>
       <li>Numerical Modeling</li>
       <li>Machine Learning</li>
     </ul>
@@ -30,18 +30,18 @@ Beyond research, I am passionate about scientific communication and mentoring. I
   <div style="flex: 1; min-width: 200px;">
     <h3>Education</h3>
     <ul>
-      <li>Ph.D. Mechanical Engineering<br>University of Rochester, USA</li>
-      <li>Bachelors in Mechanical Engineering<br>Pulchowk Campus, Tribhuvan University, Nepal</li>
+      <li>Ph.D. Physics <br> The University of Sheffield, UK</li>
+      <li>Masters in Physics<br>University of Hyderabad, India</li>
     </ul>
   </div>
 
   <div style="flex: 1; min-width: 200px;">
     <h3>Contact</h3>
     <p>
-      Email: <a href="mailto:shikhar.rai@whoi.edu">shikhar.rai@whoi.edu</a><br>
-      Phone: +1 (508) 289-3278<br>
-      Office: 206A Clark, Woods Hole Oceanographic Institution<br>
-      Woods Hole, MA-02540, USA
+      Email: <a href="mailto:subhadip@iastate.edu">subhadip@iastate.edu</a><br>
+      Phone: +1 (515) xxx xxxx<br>
+      Office: 1605 Gilman Hall, Department of Chemistry,<br>
+      Iowa State University, Ames IA, USA
     </p>
   </div>
 
