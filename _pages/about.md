@@ -16,7 +16,7 @@ Beyond research, I am passionate about scientific communication and mentoring. I
 
 <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-top: 3rem; font-size: 0.85em; line-height: 1.0;">
 
-  <div style="flex: 1; min-width: 300px;">
+  <div style="flex: 1; min-width: 250px;">
     <h3>Research Interests</h3>
     <ul>
       <li>Soft Matter Physics</li>
@@ -29,7 +29,7 @@ Beyond research, I am passionate about scientific communication and mentoring. I
     </ul>
   </div>
 
-  <div style="flex: 1; min-width: 300px;">
+  <div style="flex: 1; min-width: 250px;">
     <h3>Education</h3>
     <ul>
       <li>PhD in Physics, <a href="https://etheses.whiterose.ac.uk/id/eprint/30490/">Thesis, </a> <br> <a href="https://www.sheffield.ac.uk/mps">The University of Sheffield</a>, UK</li>
