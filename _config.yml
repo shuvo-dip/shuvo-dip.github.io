@@ -29,7 +29,7 @@ author:
   location         : "Ames, IA, USA"
   employer         : "Iowa State University"
   uri              : # URL
-  email            : "subhadip@iastate.org" 
+  email            : "subhadip@iastate.edu" 
 
   # Academic websites
   academia         : # URL
@@ -46,7 +46,7 @@ author:
   bitbucket        : # Username - Update with your username on the site
   codepen          : # Username
   dribbble         : # Username
-  github           : "shuvo-dip.github.io "
+  github           : "shuvo-dip"
   kaggle           : # Username  
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
