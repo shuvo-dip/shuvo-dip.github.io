@@ -1,16 +1,105 @@
----
-layout: archive
-title: "Talks and presentations"
-permalink: /talks/
-author_profile: true
----
+<h2>Recent Seminars and Poster Presentations</h2>
+<hr/>
 
-{% if site.talkmap_link == true %}
+<style>
+.abstract-toggle {
+  color: #1a73e8;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+.abstract-content {
+  display: none;
+  font-size: 0.95em;
+  margin-top: 0.5em;
+}
+</style>
 
-<p style="text-decoration:underline;"><a href="/talkmap.html">See a map of all the places I've given a talk!</a></p>
+<script>
+function toggleAbstract(id) {
+  var x = document.getElementById(id);
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
 
-{% endif %}
+<div style="margin-bottom: 2rem;">
+  <p style="margin: 0; font-size: 1.05em; font-family: Georgia, serif;">
+    <strong>Uncovering material properties of biomolecular condensates via energy landscape framework of stickers and spacers</strong>
+  </p>
+  <p><em>APS Global Meeting 2025</em> — Anaheim, CA, USA<br>
+  <strong>Date:</strong> March 18, 2025<br>
+  <a href="https://summit.aps.org/events/MAR-G58/2" target="_blank">(speaker)</a><br>
+  <span class="abstract-toggle" onclick="toggleAbstract('abs1')">[+] Abstract</span>
+  <div id="abs1" class="abstract-content"><em>&lt;add abstract here&gt;</em></div></p>
+</div>
 
-{% for post in site.talks reversed %}
-  {% include archive-single-talk.html %}
-{% endfor %}
+<div style="margin-bottom: 2rem;">
+  <p style="margin: 0; font-size: 1.05em; font-family: Georgia, serif;">
+    <strong>Exploring the Viscoelasticity and Aging Dynamics in Biomolecular Condensates: Bridging Polymeric Systems and Gel Networks</strong>
+  </p>
+  <p><em>Physics Colloquium at UNI</em> — University of Northern Iowa, IA, USA<br>
+  <strong>Date:</strong> September 18, 2024<br>
+  <a href="https://chas.uni.edu/physics/announcements/physics-colloquium-sept-18th-2024-dr-subhadip-biswas-iowa-state-university" target="_blank">(invited speaker)</a><br>
+  <span class="abstract-toggle" onclick="toggleAbstract('abs2')">[+] Abstract</span>
+  <div id="abs2" class="abstract-content"><em>&lt;add abstract here&gt;</em></div></p>
+</div>
+
+<div style="margin-bottom: 2rem;">
+  <p style="margin: 0; font-size: 1.05em; font-family: Georgia, serif;">
+    <strong>Illuminating the dynamics of biomolecular condensates with alphabet-free exploration of stickers-spacers energy landscapes</strong>
+  </p>
+  <p><em>ISMC2024</em> — Raleigh, NC, USA<br>
+  <strong>Date:</strong> August 1, 2024<br>
+  <a href="https://soft-matter.com/ismc2024/" target="_blank">(poster)</a><br>
+  <span class="abstract-toggle" onclick="toggleAbstract('abs3')">[+] Abstract</span>
+  <div id="abs3" class="abstract-content"><em>&lt;add abstract here&gt;</em></div></p>
+</div>
+
+<div style="margin-bottom: 2rem;">
+  <p style="margin: 0; font-size: 1.05em; font-family: Georgia, serif;">
+    <strong>Molecular drivers of aging in biomolecular condensates: Desolvation, rigidification, and sticker lifetimes</strong>
+  </p>
+  <p><em>ISMC2024</em> — Raleigh, NC, USA<br>
+  <strong>Date:</strong> July 30, 2024<br>
+  <a href="https://soft-matter.com/ismc2024" target="_blank">(poster)</a><br>
+  <span class="abstract-toggle" onclick="toggleAbstract('abs4')">[+] Abstract</span>
+  <div id="abs4" class="abstract-content"><em>&lt;add abstract here&gt;</em></div></p>
+</div>
+
+<div style="margin-bottom: 2rem;">
+  <p style="margin: 0; font-size: 1.05em; font-family: Georgia, serif;">
+    <strong>Molecular drivers of aging in biomolecular condensates: Desolvation, rigidification, and sticker lifetimes</strong>
+  </p>
+  <p><em>ISMC2024 Young Investigator Workshop</em> — Raleigh, NC, USA<br>
+  <strong>Date:</strong> July 27-28, 2024<br>
+  <a href="https://smaa.eventsair.com/cmspreview/ismc-yiw-2024/#young-investigator-workshop" target="_blank">(poster)</a><br>
+  <span class="abstract-toggle" onclick="toggleAbstract('abs5')">[+] Abstract</span>
+  <div id="abs5" class="abstract-content"><em>&lt;add abstract here&gt;</em></div></p>
+</div>
+
+<div style="margin-bottom: 2rem;">
+  <p style="margin: 0; font-size: 1.05em; font-family: Georgia, serif;">
+    <strong>Studying material properties of bio-soft matter systems: Using MD simulations</strong>
+  </p>
+  <p><em>ESCIP2024 Workshop: "Teaching scientific computing at the dawn of AI"</em> — Ames, IA, USA<br>
+  <strong>Date:</strong> May 30, 2024<br>
+  <a href="https://escip.io/workshops/workshop2024.html" target="_blank">(speaker)</a><br>
+  <span class="abstract-toggle" onclick="toggleAbstract('abs6')">[+] Abstract</span>
+  <div id="abs6" class="abstract-content"><em>&lt;add abstract here&gt;</em></div></p>
+</div>
+
+<div style="margin-bottom: 2rem;">
+  <p style="margin: 0; font-size: 1.05em; font-family: Georgia, serif;">
+    <strong>Molecular Origin of Aging in Biomolecular Condensate</strong>
+  </p>
+  <p><em>APS March Meeting 2024</em> — Minneapolis, MI, USA<br>
+  <strong>Date:</strong> March 7, 2024<br>
+  <a href="https://meetings.aps.org/Meeting/MAR24/Session/W37.1" target="_blank">(speaker)</a><br>
+  <span class="abstract-toggle" onclick="toggleAbstract('abs7')">[+] Abstract</span>
+  <div id="abs7" class="abstract-content"><em>&lt;add abstract here&gt;</em></div></p>
+</div>
+
+<!-- Remaining talks 8-13 omitted for brevity, will add in next update if confirmed -->
