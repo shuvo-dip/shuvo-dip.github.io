@@ -190,37 +190,6 @@ author_profile: true
 
   </div>
 </li>
-<!----Updated-->
-<li>
-  <div class="talk-box" style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-start;">
-
-    <!-- Left: Talk Details -->
-    <div style="flex: 2; min-width: 250px;">
-      <div class="talk-title">
-        Illuminating the dynamics of biomolecular condensates with alphabet-free exploration of stickers-spacers energy landscapes
-      </div>
-      <div class="talk-meta">
-        01 Aug 2024 – <em>ISMC2024</em> – Relaygh, NC, USA
-        <a href="https://soft-matter.com/ismc2024/" target="_blank">(poster)</a>
-      </div>
-    </div>
-
-    <!-- Right: Poster Thumbnail with Zoom + Download -->
-    <div style="flex: 1; min-width: 180px; text-align: right;">
-      <img src="/images/posters/2024_07_31_ISMC.jpg"
-           alt="2024 ISMC Poster"
-           class="lightbox-thumb"
-           onclick="openLightbox(this)">
-      <br>
-      <a href="/images/posters/2024_07_31_ISMC.pdf" download>
-        <button style="margin-top: 0.5em; padding: 0.4em 1em; background-color: #1a73e8; color: white; border: none; border-radius: 5px; font-size: 0.9em; cursor: pointer;">
-          Download Poster
-        </button>
-      </a>
-    </div>
-
-  </div>
-</li>
 
 
 <!-- [8] -->
@@ -375,6 +344,19 @@ function openLightbox(img) {
 </script>
 
 <style>
+.lightbox-thumb {
+  max-width: 100%;
+  max-height: 120px;
+  cursor: zoom-in;
+  border: 1px solid #ccc;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lightbox-thumb:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  z-index: 1;
+}
 #lightbox-overlay {
   display: none;
   position: fixed;
@@ -393,3 +375,5 @@ function openLightbox(img) {
   cursor: zoom-out;
 }
 </style>
+
+
