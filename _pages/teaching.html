@@ -1,12 +1,62 @@
 ---
 layout: archive
-title: "Teaching"
+title: "Teaching & Outreach"
 permalink: /teaching/
 author_profile: true
 ---
 
-{% include base_path %}
+<style>
+.course-box {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.08);
+  padding: 1em;
+  margin-bottom: 1.5em;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.course-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 4px 6px 15px rgba(0,0,0,0.12);
+}
+.course-title {
+  font-weight: 600;
+  font-size: 1.05em;
+  font-family: Georgia, serif;
+  margin-bottom: 0.2em;
+}
+.course-meta {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 0.4em;
+}
+.course-description {
+  font-size: 0.95em;
+  color: #444;
+  line-height: 1.5em;
+}
+</style>
 
-{% for post in site.teaching reversed %}
-  {% include archive-single.html %}
-{% endfor %}
+<p><em>Graduate Teaching Assistant, Department of Physics and Astronomy,<br>
+The University of Sheffield, UK</em></p>
+
+<div class="course-box">
+  <div class="course-title">PHY250 Physics — Tutor (2018–2019)</div>
+  <div class="course-description">
+    Electromagnetic Theory, Quantum Mechanics, Relativity, Classical Mechanics, <em>etc.</em>
+  </div>
+</div>
+
+<div class="course-box">
+  <div class="course-title">PHY230 Physics — Tutor (2019–2020)</div>
+  <div class="course-description">
+    Thermodynamics, Solid State Physics, Optics, Mathematical Physics, <em>etc.</em>
+  </div>
+</div>
+
+<div class="course-box">
+  <div class="course-title">PHY1001-2 Experimental Physics — Assistant Lab Demonstrator (2019–2020)</div>
+</div>
+
+<div class="course-box">
+  <div class="course-title">PHY1001-2 Experimental Physics — Assistant Lab Demonstrator (2020–2021)</div>
+</div>
