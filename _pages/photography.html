@@ -1,0 +1,131 @@
+---
+layout: single
+title: "Photography"
+permalink: /photography/
+author_profile: true
+---
+
+<style>
+.photo-grid {
+  column-count: 3;
+  column-gap: 1em;
+}
+
+.photo-item {
+  display: inline-block;
+  margin: 0 0 1em;
+  width: 100%;
+  break-inside: avoid;
+  position: relative;
+  cursor: zoom-in;
+}
+
+.photo-item img {
+  width: 100%;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-item:hover img {
+  transform: scale(1.02);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.caption {
+  font-size: 0.85em;
+  color: #555;
+  margin-top: 0.25em;
+}
+
+.like-btn {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: white;
+  padding: 5px;
+  border-radius: 50%;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.15);
+  cursor: pointer;
+  z-index: 1;
+}
+
+.like-btn::before {
+  content: "\2665";
+  color: red;
+  font-size: 1.2em;
+}
+
+#lightbox-overlay {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background-color: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+#lightbox-overlay img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border: 4px solid white;
+  border-radius: 8px;
+  cursor: zoom-out;
+}
+</style>
+
+<h2 style="text-align:center">📷 My Photography</h2>
+<div class="photo-grid">
+  <div class="photo-item" onclick="openLightbox(this)">
+    <div class="like-btn"></div>
+    <img src="/images/photography/image_01.jpg" alt="Photo 1">
+    <div class="caption">Timeless.</div>
+  </div>
+
+  <div class="photo-item" onclick="openLightbox(this)">
+    <div class="like-btn"></div>
+    <img src="/images/photography/edit1_falmouth_23_DSC_0265.jpg" alt="Photo 2">
+    <div class="caption">Sunset over sea.</div>
+  </div>
+
+  <div class="photo-item" onclick="openLightbox(this)">
+    <div class="like-btn"></div>
+    <img src="/images/photography/DSC_1445-1.jpg" alt="Photo 2">
+    <div class="caption">Surviving.</div>
+  </div>
+
+  <div class="photo-item" onclick="openLightbox(this)">
+    <div class="like-btn"></div>
+    <img src="/images/photography/DSC_0801-1.jpg" alt="Photo 2">
+    <div class="caption">Spring.</div>
+  </div>
+  <!-- Add more images as needed -->
+</div>
+
+<!-- Lightbox Modal -->
+<div id="lightbox-overlay" onclick="this.style.display='none'">
+  <img src="" alt="Enlarged Image">
+</div>
+
+<script>
+function openLightbox(el) {
+  const src = el.querySelector('img').src;
+  const lightbox = document.getElementById('lightbox-overlay');
+  lightbox.querySelector('img').src = src;
+  lightbox.style.display = 'flex';
+}
+</script>
+
+<hr/>
+<h3>📬 Leave a Comment</h3>
+
+<form method="POST" action="https://staticman3.herokuapp.com/v3/entry/github/shuvo-dip/shuvo-dip.github.io/master/comments" class="comment-form">
+  <input name="options[slug]" type="hidden" value="photography">
+  <p><label>Name:<br><input name="fields[name]" required></label></p>
+  <p><label>Email (not published):<br><input name="fields[email]" type="email" required></label></p>
+  <p><label>Comment:<br><textarea name="fields[message]" rows="5" required></textarea></label></p>
+  <p><button type="submit">Submit Comment</button></p>
+</form>
+
+<p style="font-size: 0.85em; color: #666;">All comments are moderated and will appear once approved.</p>

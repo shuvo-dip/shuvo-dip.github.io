@@ -19,7 +19,15 @@ main:
     url: /talks/    
 
   - title: "Teaching"
-    url: /teaching/    
-        
-  - title: "Blog Posts"
+    url: /teaching/  
+
+  - title: "Blog"
     url: /year-archive/
+    children:
+      - title: "All Posts"
+        url: /year-archive/
+      - title: "Photography"
+        url: /photography/
+
+#  - title: "Blog Posts"
+#    url: /year-archive/
