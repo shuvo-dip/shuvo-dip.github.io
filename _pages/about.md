@@ -44,7 +44,7 @@ Beyond research, I am passionate about scientific communication and mentoring. I
       Email: <a href="mailto:subhadip@iastate.edu">subhadip@iastate.edu</a><br>
       <!-- Phone: +1 (515) xxx xxxx<br> -->
       Office: 1605 Gilman Hall, Department of Chemistry,<br>
-      Iowa State University, Ames IA, USA
+      Iowa State University, Ames, IA, USA
     </p>
   </div>
 
