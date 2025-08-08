@@ -33,8 +33,8 @@ Beyond research, I am passionate about scientific communication and mentoring. I
     <h3>Education</h3>
     <ul>
       <li>PhD in Physics, 2022, <a href="https://etheses.whiterose.ac.uk/id/eprint/30490/">Thesis</a>, <br> <a href="https://www.sheffield.ac.uk/mps">The University of Sheffield</a>, UK</li>
-      <li>MSc in Physics, 2016 <br><a href="https://sop.uohyd.ac.in/">University of Hyderabad</a>, India</li>
-      <li>BSc in Physics, 2014 <br><a href="https://www.caluniv.ac.in/">University of Calcutta</a>, India</li>
+      <li>MSc in Physics, 2016, <br><a href="https://sop.uohyd.ac.in/">University of Hyderabad</a>, India</li>
+      <li>BSc in Physics, 2014, <br><a href="https://www.caluniv.ac.in/">University of Calcutta</a>, India</li>
     </ul>
   </div>
 
