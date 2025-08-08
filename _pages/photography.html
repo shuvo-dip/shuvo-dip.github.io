@@ -69,22 +69,31 @@ author_profile: true
 /* Nav arrows */
 .lb-nav {
   position: absolute;
-  top: 50%;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
   display: flex;
   justify-content: space-between;
-  pointer-events: none;
+  align-items: center;
+  pointer-events: none; /* prevents overlay from blocking click */
 }
+
 .lb-btn {
   pointer-events: auto;
-  background: rgba(255,255,255,0.8);
-  color: #000;
+  background: none; /* no circle */
+  color: rgba(255, 255, 255, 0.7); /* semi-transparent white */
   border: none;
-  border-radius: 50%;
-  font-size: 1.5rem;
-  padding: 0.25rem 0.6rem;
+  font-size: 3rem; /* bigger arrow */
+  padding: 0 1rem;
   cursor: pointer;
+  transition: color 0.2s ease;
 }
+
+.lb-btn:hover {
+  color: rgba(255, 255, 255, 1); /* fully white on hover */
+}
+
 </style>
 
 <h2>📷 My Photography</h2>
@@ -93,7 +102,7 @@ author_profile: true
   <div class="photo-item" 
        data-caption="Timeless."
        data-date="2025-06-01"
-       data-camera="Nikon D750"
+       data-camera="Nikon D3200"
        data-lens="50mm f/1.8"
        data-settings="1/640s · f/2.0 · ISO 200">
     <img src="/images/photography/image_01.jpg" alt="Timeless">
@@ -103,7 +112,7 @@ author_profile: true
   <div class="photo-item"
        data-caption="Sunset over sea."
        data-date="2023-07-14"
-       data-camera="Nikon D750"
+       data-camera="Nikon D3200"
        data-lens="24–70mm f/2.8"
        data-settings="1/320s · f/5.6 · ISO 100">
     <img src="/images/photography/edit1_falmouth_23_DSC_0265.jpg" alt="Sunset over sea">
@@ -113,7 +122,7 @@ author_profile: true
     <div class="photo-item"
         data-slug="DSC_1445-1"
         data-date="2022-11-02"
-        data-camera="Nikon D750"
+        data-camera="Nikon D3200"
         data-lens="85mm f/1.8"
         data-settings="1/250s · f/2.2 · ISO 320"
         data-caption="Surviving.">
@@ -124,7 +133,7 @@ author_profile: true
   <div class="photo-item"
         data-slug="DSC_0801-1"
         data-date="2021-04-10"
-        data-camera="Nikon D750"
+        data-camera="Nikon D3200"
         data-lens="35mm f/1.8"
         data-settings="1/200s · f/2.8 · ISO 160"
         data-caption="Spring.">
