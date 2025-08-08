@@ -11,7 +11,8 @@ I am a computational and theoretical physicist, specializing in soft matter phys
 
 My work combines coarse-grained molecular dynamics, continuum and field-theoretic modeling, and statistical mechanics with deep learning techniques. I develop and implement scalable algorithms for simulating and analyzing interfacial and mesoscopic dynamics, with a particular emphasis on tracking evolving morphologies, characterizing pattern formation, and parameterizing physical models based on free energy functionals. I have also explored fluctuation-driven shape dynamics in lipid tubules and polymer confinement in complex geometries.
 
-Beyond research, I am passionate about scientific communication and mentoring. I have actively contributed to teaching during my PhD, currently mentor junior researchers, and maintain open-access tutorial repositories on GitHub. I am committed to collaborative research, mentoring, and advancing computational tools for the soft matter and biophysics community. 
+<!-- Beyond research, I am passionate about scientific communication and mentoring. I have actively contributed to teaching during my PhD, currently mentor junior researchers, and maintain open-access tutorial repositories on GitHub. I am committed to collaborative research, mentoring, and advancing computational tools for the soft matter and biophysics community. 
+-->
 
 
 <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-top: 3rem; font-size: 0.85em; line-height: 1.0;">
