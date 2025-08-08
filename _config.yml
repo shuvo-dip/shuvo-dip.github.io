@@ -21,11 +21,10 @@ repository               : "shuvo-dip/shuvo-dip.github.io"
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
-  # Biographic information
   avatar           : "profile.jpg"
   name             : "Subhadip Biswas"
-  pronouns         : # example: "she/her"  
-  bio              : "Postdoctoral Research Associate, [@Potoyan Lab](https://group.chem.iastate.edu/Potoyan/index.html), Soft Matter Biophysics"
+  pronouns:
+  bio              : 'Postdoctoral Research Associate, <a href="https://group.chem.iastate.edu/Potoyan/index.html" target="_blank">@Potoyan Lab</a>, Soft Matter Biophysics'
   location         : "Ames, IA, USA"
   employer         : "Iowa State University"
   uri              : # URL
