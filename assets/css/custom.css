@@ -4,6 +4,9 @@
 .post,
 .site-content,
 .main {
-  max-width: 1200px !important;
-  width: 100%;
+  max-width: none !important;
+  width: 100% !important;
+  box-sizing: border-box;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
