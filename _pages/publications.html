@@ -5,6 +5,7 @@ permalink: /publications/
 author_profile: true
 ---
 <style>
+/* publication cards */
 .publication_name {
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -12,12 +13,34 @@ author_profile: true
   padding: 1em;
   margin-bottom: 1.5em;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  /* IMPORTANT: make it a flex box (like your old inline style did) */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
+
+/* hover effect */
 .publication_name:hover {
   transform: translateY(-4px);
   box-shadow: 4px 6px 15px rgba(0,0,0,0.12);
 }
 
+/* widen the single-layout content area on *this* page */
+@media (min-width: 900px) {
+  /* try each of these; at least one will match your theme */
+
+  main,
+  article,
+  .page,
+  .post,
+  .page__inner-wrap {
+    max-width: 1100px;
+    margin-right: auto;
+  }
+}
+
+/* your existing lightbox styles… */
 .lightbox-thumb {
   max-width: 100%;
   max-height: 200px;
@@ -25,14 +48,11 @@ author_profile: true
   border: 1px solid #ccc;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
 .lightbox-thumb:hover {
   transform: scale(1.03);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   z-index: 1;
 }
-
-
 #lightbox-overlay {
   display: none;
   position: fixed;
@@ -43,7 +63,6 @@ author_profile: true
   justify-content: center;
   align-items: center;
 }
-
 #lightbox-overlay img {
   max-width: 70vw;
   max-height: 70vh;
@@ -52,6 +71,7 @@ author_profile: true
   cursor: zoom-out;
 }
 </style>
+
 
 
 <p align="center">
@@ -75,7 +95,7 @@ author_profile: true
 <!-- [1] -->
 <!-- <div style="display: flex; margin-bottom: 2rem; flex-wrap: wrap;"> -->
 <div class="publication_name">
-  <div style="flex: 2; min-width: 350px;">
+  <div style="flex: 2; min-width: 250px;">
     <p style="margin: 0; font-size: 1.05em; font-weight: 500; font-family: Georgia, serif;">
       [1] Backbone Rigidity Encodes Universal Viscoelastic Signatures in Biomolecular Condensates
     </p>
@@ -93,6 +113,7 @@ author_profile: true
          onclick="openLightbox(this)">
   </div>
 </div>
+
 
 
 <h2>Peer-Reviewed Publications</h2>
