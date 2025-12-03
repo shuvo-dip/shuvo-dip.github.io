@@ -39,7 +39,7 @@ My work combines coarse-grained molecular dynamics, continuum and field-theoreti
     </ul>
   </div>
 
-  <div style="flex: 1; min-width: 200px;">
+  <div style="flex: 1; min-width: 300px;">
     <h3>Work</h3>
     <p>
       Postdoc, CNRS, Université Paris-Saclay, Dec 2025 - <br>
