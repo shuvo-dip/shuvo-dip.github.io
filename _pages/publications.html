@@ -5,7 +5,6 @@ permalink: /publications/
 author_profile: true
 ---
 <style>
-/* publication cards */
 .publication_name {
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -14,30 +13,15 @@ author_profile: true
   margin-bottom: 1.5em;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 
-  /* IMPORTANT: make it a flex box (like your old inline style did) */
+  /* This is crucial */
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
 }
 
-/* hover effect */
 .publication_name:hover {
   transform: translateY(-4px);
   box-shadow: 4px 6px 15px rgba(0,0,0,0.12);
-}
-
-/* widen the single-layout content area on *this* page */
-@media (min-width: 900px) {
-  /* try each of these; at least one will match your theme */
-
-  main,
-  article,
-  .page,
-  .post,
-  .page__inner-wrap {
-    max-width: 2000px;
-    margin-right: auto;
-  }
 }
 
 /* your existing lightbox styles… */
@@ -69,6 +53,18 @@ author_profile: true
   border: 4px solid white;
   box-shadow: 0 0 20px rgba(0,0,0,0.5);
   cursor: zoom-out;
+}
+@media (min-width: 1000px) {
+  /* Try to widen the central content area on this page */
+  main,
+  article,
+  .page-content,
+  .content,
+  .post {
+    max-width: 1200px !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 </style>
 
