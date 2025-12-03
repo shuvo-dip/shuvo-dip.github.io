@@ -24,11 +24,12 @@ author:
   avatar           : "profile.jpg"
   name             : "Subhadip Biswas"
   pronouns:
-  bio              : 'Postdoctoral Research Associate, <a href="https://group.chem.iastate.edu/Potoyan/index.html" target="_blank">@Potoyan Lab</a>, Soft Matter Biophysics'
-  location         : "Ames, IA, USA"
-  employer         : "Iowa State University"
+  bio              : 'Postdoctoral Research Associate , <a href="https://equipes.lps.u-psud.fr/rik/" target="_blank">@Rik Lab</a>, Soft Matter Physics'
+  #bio              : 'Postdoctoral Research Associate , <a href="https://group.chem.iastate.edu/Potoyan/index.html" target="_blank">@Potoyan Lab</a>, Soft Matter Biophysics'
+  location         : "Orsay, France" #"Ames, IA, USA"
+  employer         : "Université Paris-Saclay" #"Iowa State University"
   uri              : # URL
-  email            : "subhadip@iastate.edu" 
+  email            : "subhadip.biswas@universite-paris-saclay.fr" #"subhadip@iastate.edu" 
 
   # Academic websites
   academia         : # URL
@@ -50,7 +51,7 @@ author:
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
   # Social media
-  bluesky          : # "bsky.app" # Replace this with you Bluesky username
+  bluesky          : "subhadip" # Replace this with you Bluesky username
   facebook         : # Username
   flickr           : # Username
   foursquare       : # Username
