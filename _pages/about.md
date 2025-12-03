@@ -40,12 +40,20 @@ My work combines coarse-grained molecular dynamics, continuum and field-theoreti
   </div>
 
   <div style="flex: 1; min-width: 200px;">
-    <h3>Contact</h3>
+    <h3>Work</h3>
     <p>
-      Email: <a href="mailto:subhadip.biswas@universite-paris-saclay.fr">subhadip@iastate.edu</a><br>
+      Postdoc, Université Paris-Saclay, Dec 2025 - <br>
+      Email: <a href="mailto:subhadip.biswas@universite-paris-saclay.fr">subhadip.biswas@universite-paris-saclay.fr</a><br>
       <!-- Phone: +1 (515) xxx xxxx<br> -->
       Office:   510 - Campus: Bures-Orsay-Gif, 9 Rue André Rivière <br>
       LPS, CNRS, 91400 Orsay, France
+    </p>
+    <h3>Contact</h3>
+    <p>
+      Email: <a href="mailto:subhadip@iastate.edu">subhadip@iastate.edu</a><br>
+      <!-- Phone: +1 (515) xxx xxxx<br> -->
+      Office:   1605 Gilman Hall, Department of Chemistry,   <br>
+      Iowa State University, Ames IA USA
     </p>
   </div>
 
