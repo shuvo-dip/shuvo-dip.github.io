@@ -1,12 +1,13 @@
-.wrapper,
-.container,
-.page,
-.post,
-.site-content,
-.main {
-  max-width: none !important;
-  width: 100% !important;
-  box-sizing: border-box;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+/* On wide screens, keep room for the left sidebar */
+@media (min-width: 900px) {
+  /* Replace these selectors with whatever your main-content container is */
+  main,
+  .page,
+  .post,
+  .site-content {
+    margin-left: 320px;              /* ≈ sidebar width */
+    max-width: calc(100vw - 340px);  /* avoid going off screen */
+    padding-right: 2rem;
+    box-sizing: border-box;
+  }
 }
