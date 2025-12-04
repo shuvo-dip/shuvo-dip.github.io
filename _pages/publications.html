@@ -21,14 +21,17 @@ author_profile: true
 }
 
 /* BibTeX details block */
-.bibtex-details {
-  position: relative;
-  margin-top: 0.5em;
-  padding: 0.75em 1em 1em;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  background-color: #f9f9f9;
+.bibtex-details summary {
+  cursor: pointer;
   font-size: 0.9em;
+  color: #1a73e8;
+  text-decoration: underline;
+  list-style: none;
+  display: inline;         /* <-- this removes the full-width block */
+  padding: 0;              /* <-- remove padding */
+  margin: 0;
+  background: none;        /* <-- ensure no box */
+  border: none;            /* <-- remove box */
 }
 
 /* The clickable "BibTeX" text */
@@ -190,7 +193,7 @@ author_profile: true
       </a><br>
       <small><sup>&dagger;</sup> Equal contribution</small><br>
 
-      <details style="margin: 0; font-size: 1.05em; font-weight: 500; font-family: Georgia, serif;"> <!--class="bibtex-details">-->
+      <details class="bibtex-details">
         <summary>BibTeX</summary>
         <button type="button"
                 class="bibtex-copy"
