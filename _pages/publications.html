@@ -57,7 +57,47 @@ author_profile: true
   transform: translateY(-4px);
   box-shadow: 4px 6px 15px rgba(0,0,0,0.12);
 }
+
+/* Link that opens/closes the BibTeX box */
+.bibtex-link {
+  cursor: pointer;
+  font-size: 0.9em;
+  color: #1a73e8;
+  text-decoration: underline;
+}
+
+/* Container that shows the BibTeX text */
+.bibtex-box {
+  display: none;                  /* hidden by default */
+  position: relative;
+  margin-top: 0.5em;
+  padding: 0.75em 1em 1em;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  font-size: 0.9em;
+}
+
+/* The actual BibTeX text */
+.bibtex-box pre {
+  margin: 0;
+  white-space: pre;
+  overflow-x: auto;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+/* Copy button in the top-right corner of the BibTeX box */
+.bibtex-copy {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1.1em;
+}
 </style>
+
 
 <p align="center">
   <a href="https://scholar.google.com/citations?user=QUuN9CwAAAAJ" target="_blank">
@@ -104,7 +144,7 @@ author_profile: true
 <hr />
 
 <!-- [9] -->
-<div class="talk-box">
+<!-- <div class="talk-box">
   <div style="flex: 2; min-width: 250px;">
     <p style="margin: 0; font-size: 1.05em; font-weight: 500; font-family: Georgia, serif;">
       [9] Chromatin Binding Regulates Phase Behavior and Morphology of Condensates Formed by Prion-Like Domains
@@ -122,7 +162,59 @@ author_profile: true
          class="lightbox-thumb"
          onclick="openLightbox(this)">
   </div>
+</div> -->
+
+<!-- [9] -->
+<div class="talk-box">
+  <div style="flex: 2; min-width: 250px;">
+    <p style="margin: 0; font-size: 1.05em; font-weight: 500; font-family: Georgia, serif;">
+      [9] Chromatin Binding Regulates Phase Behavior and Morphology of Condensates Formed by Prion-Like Domains
+    </p>
+    <p>
+      <em>A. Supakar<sup>&dagger;</sup>, R. Davis<sup>&dagger;</sup>, <strong>S. Biswas<sup>&dagger;</sup></strong>, S. Yang, D.A. Potoyan and P.R. Banerjee</em><br>
+      <a href="https://doi.org/10.1016/j.jmb.2025.169398" target="_blank">
+        <span style="font-style: italic;">JMB;</span> 437(21), 169398, 2025
+      </a><br>
+      <a href="http://dx.doi.org/10.2139/ssrn.5235049" target="_blank">
+        <span style="font-style: italic;">SSRN;</span> 2025
+      </a><br>
+      <small><sup>&dagger;</sup> Equal contribution</small><br>
+
+      <!-- NEW: BibTeX link -->
+      <span class="bibtex-link" onclick="toggleBibtex('bib9')">BibTeX</span>
+    </p>
+
+    <!-- NEW: BibTeX box -->
+    <div id="bib9" class="bibtex-box">
+      <button type="button"
+              class="bibtex-copy"
+              onclick="copyBibtex('bib9-text')"
+              title="Copy BibTeX">
+        📋
+      </button>
+      <pre id="bib9-text">
+@article{Supakar2025ChromatinCondensates,
+  title   = {Chromatin Binding Regulates Phase Behavior and Morphology of Condensates Formed by Prion-Like Domains},
+  author  = {Supakar, Ananya and Davis, Rachel and Biswas, Subhadip and Yang, Shuai and Potoyan, Davit A. and Banerjee, Prashant R.},
+  journal = {Journal of Molecular Biology},
+  year    = {2025},
+  volume  = {437},
+  number  = {21},
+  pages   = {169398},
+  doi     = {10.1016/j.jmb.2025.169398}
+}
+      </pre>
+    </div>
+  </div>
+
+  <div style="flex: 1; min-width: 200px; text-align: right;">
+    <img src="/images/publications/9_2025_jmb_chromatin.jpg" 
+         alt="2025"
+         class="lightbox-thumb"
+         onclick="openLightbox(this)">
+  </div>
 </div>
+
 <!-- [8] -->
 <div class="talk-box">
   <div style="flex: 2; min-width: 250px;">
@@ -284,3 +376,43 @@ function openLightbox(img) {
 }
 </script>
 
+<script>
+function toggleBibtex(id) {
+  const box = document.getElementById(id);
+  const isOpen = box.style.display === 'block';
+  box.style.display = isOpen ? 'none' : 'block';
+}
+
+function copyBibtex(preId) {
+  const pre = document.getElementById(preId);
+  const text = pre.innerText;
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text)
+      .then(() => {
+        alert('BibTeX copied to clipboard');
+      })
+      .catch(() => fallbackCopy(pre, text));
+  } else {
+    fallbackCopy(pre, text);
+  }
+}
+
+function fallbackCopy(pre, text) {
+  // Fallback using document.execCommand
+  const range = document.createRange();
+  range.selectNodeContents(pre);
+  const selection = window.getSelection();
+  selection.removeAllRanges();
+  selection.addRange(range);
+
+  try {
+    const success = document.execCommand('copy');
+    alert(success
+      ? 'BibTeX copied to clipboard'
+      : 'Press Ctrl+C / Cmd+C to copy the BibTeX');
+  } catch (err) {
+    alert('Press Ctrl+C / Cmd+C to copy the BibTeX');
+  }
+}
+</script>
