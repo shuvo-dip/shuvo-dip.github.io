@@ -4,6 +4,71 @@ title: "Publications"
 permalink: /publications/
 author_profile: true
 ---
+<style>
+.talk-box {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.08);
+  padding: 1em;
+  margin-bottom: 2em;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-wrap: wrap;
+}
+.talk-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 4px 6px 15px rgba(0,0,0,0.12);
+}
+
+/* BibTeX details block */
+.bibtex-details {
+  position: relative;
+  margin-top: 0.5em;
+  padding: 0.75em 1em 1em;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  font-size: 0.9em;
+}
+
+/* The clickable "BibTeX" text */
+.bibtex-details > summary {
+  cursor: pointer;
+  font-size: 0.9em;
+  color: #1a73e8;
+  text-decoration: underline;
+  list-style: none;
+}
+
+/* Hide the default triangle marker */
+.bibtex-details > summary::-webkit-details-marker {
+  display: none;
+}
+.bibtex-details > summary::marker {
+  content: "";
+}
+
+/* BibTeX text */
+.bibtex-details pre {
+  margin: 0.5em 0 0;
+  white-space: pre;
+  overflow-x: auto;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+/* Copy button in the top-right corner of the BibTeX box */
+.bibtex-copy {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1.1em;
+}
+
+/* your existing lightbox styles can stay as they are */
+</style>
 
 
 <style>
@@ -42,61 +107,6 @@ author_profile: true
 }
 </style>
 
-<style>
-.talk-box {
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.08);
-  padding: 1em;
-  margin-bottom: 2em;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  display: flex; 
-  flex-wrap: wrap;
-}
-.talk-box:hover {
-  transform: translateY(-4px);
-  box-shadow: 4px 6px 15px rgba(0,0,0,0.12);
-}
-
-/* Link that opens/closes the BibTeX box */
-.bibtex-link {
-  cursor: pointer;
-  font-size: 0.9em;
-  color: #1a73e8;
-  text-decoration: underline;
-}
-
-/* Container that shows the BibTeX text */
-.bibtex-box {
-  display: none;                  /* hidden by default */
-  position: relative;
-  margin-top: 0.5em;
-  padding: 0.75em 1em 1em;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  background-color: #f9f9f9;
-  font-size: 0.9em;
-}
-
-/* The actual BibTeX text */
-.bibtex-box pre {
-  margin: 0;
-  white-space: pre;
-  overflow-x: auto;
-  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-}
-
-/* Copy button in the top-right corner of the BibTeX box */
-.bibtex-copy {
-  position: absolute;
-  top: 6px;
-  right: 6px;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  font-size: 1.1em;
-}
-</style>
 
 
 <p align="center">
@@ -179,20 +189,17 @@ author_profile: true
         <span style="font-style: italic;">SSRN;</span> 2025
       </a><br>
       <small><sup>&dagger;</sup> Equal contribution</small><br>
+<small><sup>&dagger;</sup> Equal contribution</small><br>
 
-      <!-- NEW: BibTeX link -->
-      <span class="bibtex-link" onclick="toggleBibtex('bib9')">BibTeX</span>
-    </p>
-
-    <!-- NEW: BibTeX box -->
-    <div id="bib9" class="bibtex-box">
-      <button type="button"
-              class="bibtex-copy"
-              onclick="copyBibtex('bib9-text')"
-              title="Copy BibTeX">
-        📋
-      </button>
-      <pre id="bib9-text">
+<details class="bibtex-details">
+  <summary>BibTeX</summary>
+  <button type="button"
+          class="bibtex-copy"
+          onclick="copyBibtex('bib9-text')"
+          title="Copy BibTeX">
+    📋
+  </button>
+  <pre id="bib9-text">
 @article{Supakar2025ChromatinCondensates,
   title   = {Chromatin Binding Regulates Phase Behavior and Morphology of Condensates Formed by Prion-Like Domains},
   author  = {Supakar, Ananya and Davis, Rachel and Biswas, Subhadip and Yang, Shuai and Potoyan, Davit A. and Banerjee, Prashant R.},
@@ -203,9 +210,10 @@ author_profile: true
   pages   = {169398},
   doi     = {10.1016/j.jmb.2025.169398}
 }
-      </pre>
-    </div>
-  </div>
+  </pre>
+</details>
+</p>
+
 
   <div style="flex: 1; min-width: 200px; text-align: right;">
     <img src="/images/publications/9_2025_jmb_chromatin.jpg" 
@@ -375,14 +383,7 @@ function openLightbox(img) {
   overlay.querySelector('img').src = img.src;
 }
 </script>
-
 <script>
-function toggleBibtex(id) {
-  const box = document.getElementById(id);
-  const isOpen = box.style.display === 'block';
-  box.style.display = isOpen ? 'none' : 'block';
-}
-
 function copyBibtex(preId) {
   const pre = document.getElementById(preId);
   const text = pre.innerText;
@@ -399,7 +400,6 @@ function copyBibtex(preId) {
 }
 
 function fallbackCopy(pre, text) {
-  // Fallback using document.execCommand
   const range = document.createRange();
   range.selectNodeContents(pre);
   const selection = window.getSelection();
