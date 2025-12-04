@@ -521,3 +521,18 @@ function copyBibtex() {
   }
 }
 </script>
+
+
+
+<div id="bibtex-overlay" onclick="closeBibtexModal()">
+  <div class="bibtex-modal" onclick="event.stopPropagation()">
+    <div class="bibtex-modal-header">
+      <span><strong>Export Citation (BibTeX)</strong></span>
+      <div>
+        <button class="bibtex-copy" onclick="copyBibtex()">Copy</button>
+        <button class="bibtex-close" onclick="closeBibtexModal()">✖</button>
+      </div>
+    </div>
+    <pre id="bibtex-modal-text"></pre>
+  </div>
+</div>
