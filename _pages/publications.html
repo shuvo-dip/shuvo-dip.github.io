@@ -5,94 +5,105 @@ permalink: /publications/
 author_profile: true
 ---
 
+
 <style>
-.talk-box {
+.lightbox-thumb {
+  max-width: 100%;
+  max-height: 200px;
+  cursor: zoom-in;
   border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.08);
-  padding: 1em;
-  margin-bottom: 1.5em;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.talk-box:hover {
-  transform: translateY(-4px);
-  box-shadow: 4px 6px 15px rgba(0,0,0,0.12);
+
+.lightbox-thumb:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  z-index: 1;
 }
-.talk-title {
-  font-weight: 500;
-  flex: 2; 
-  min-width: 250px;
-  font-size: 1.05em;
-  font-family: Georgia, serif;
-  margin-bottom: 0.3em;
-}
-.talk-meta {
-  font-size: 0.9em;
-  color: #666;
-  margin-bottom: 0.5em;
-}
-.abstract-toggle {
-  cursor: pointer;
-  font-size: 0.9em;
-  color: #1a73e8;
-  text-decoration: underline;
-}
-.abstract-content {
+
+
+#lightbox-overlay {
   display: none;
-  font-size: 0.95em;
-  color: #444;
-  margin-top: 0.5em;
-  line-height: 1.5em;
+  position: fixed;
+  z-index: 9999;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background-color: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
 }
-.talk-header {
-  text-align: center;
-  margin-bottom: 1.5em;
-}
-.talk-header a {
-  margin: 0 0.5em;
-  padding: 0.5em 1em;
-  border: 1px solid #aaa;
-  border-radius: 6px;
-  text-decoration: none;
-  background-color: #f9f9f9;
-}
-.talk-header a:hover {
-  background-color: #eaeaea;
+
+#lightbox-overlay img {
+  max-width: 70vw;
+  max-height: 70vh;
+  border: 4px solid white;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  cursor: zoom-out;
 }
 </style>
 
-<div class="talk-header">
-  <a href="#talks">Talks</a>
-  <a href="#posters">Posters</a>
+<style>
+/* existing lightbox styles ... */
+
+@media (min-width: 900px) {
+  /* Make the main content wider on this single page layout */
+  .layout--single .page {
+    max-width: 1100px;   /* you can try 1000, 1200, etc. */
+  }
+
+  /* Optional: let the inner content use the full width */
+  .layout--single .page__inner-wrap,
+  .layout--single .page__content {
+    max-width: 100%;
+  }
+}
+</style>
+<p align="center">
+  <a href="https://scholar.google.com/citations?user=QUuN9CwAAAAJ" target="_blank">
+    <img src="https://img.shields.io/badge/Google-Scholar-blue?logo=google-scholar&style=for-the-badge">
+  </a>
+  <a href="https://www.researchgate.net/profile/Subhadip-Biswas-3" target="_blank">
+    <img src="https://img.shields.io/badge/ResearchGate-Profile-brightgreen?logo=researchgate&style=for-the-badge">
+  </a>
+  <a href="https://orcid.org/0000-0003-3184-5295" target="_blank">
+    <img src="https://img.shields.io/badge/ORCID-Profile-A6CE39?logo=orcid&style=for-the-badge">
+  </a>
+</p>
+
+
+
+
+<h2>Preprints</h2>
+<hr />
+
+<!-- [1] -->
+<div style="display: flex; margin-bottom: 2rem; flex-wrap: wrap;">
+  <div style="flex: 2; min-width: 250px;">
+    <p style="margin: 0; font-size: 1.05em; font-weight: 500; font-family: Georgia, serif;">
+      [1] Backbone Rigidity Encodes Universal Viscoelastic Signatures in Biomolecular Condensates
+    </p>
+    <p>
+      <em>S. Yang, <strong>S. Biswas</strong> and D.A. Potoyan</em><br>
+      <a href="https://www.biorxiv.org/content/10.1101/2025.06.10.658939.abstract" target="_blank">
+        <span style="font-style: italic;">bioRxiv;</span> 2025.06.10.658939, 2025
+      </a>
+    </p>
+  </div>
+  <div style="flex: 1; min-width: 200px; text-align: right;">
+    <img src="/images/publications/2025_biorxiv_viscoelastic.jpg"
+         alt="2025"
+         class="lightbox-thumb"
+         onclick="openLightbox(this)">
+  </div>
 </div>
 
-<!-- ================== TALKS ================== -->
-<h3 id="talks">Talks</h3>
-<ol reversed style="list-style-position: inside; padding-left: 0;">
 
-<!-- [5] -->
-  <li>
-    <div class="talk-box">
-      <div class="talk-title">
-        Title: Uncovering material properties of biomolecular condensates via energy landscape framework of stickers and spacers
-      </div>
-      <div class="talk-meta">
-        18 Mar 2025 – <em>APS Global Meeting 2025</em> – Anaheim, CA, USA,
-        <a href="https://summit.aps.org/events/MAR-G58/2" target="_blank">(speaker)</a>
-      </div>
+<h2>Peer-Reviewed Publications</h2>
+<hr />
 
-      <span class="abstract-toggle" onclick="toggleAbstract('abs5', this)">[+] Abstract</span>
-      <div id="abs5" class="abstract-content">
-        <em>
-          A significant fraction of eukaryotic proteins contain low-complexity sequence elements with unknown functions. Many of these sequences are prone to form biomolecular condensates with unique material and dynamic properties. Mutations in low-complexity regions often result in abnormal phase transitions into pathological solid-like states. Therefore, understanding how the low-complexity sequence patterns encode the material properties of condensates is crucial for uncovering the cellular functions and evolutionary forces behind the emergence of low-complexity regions in proteins. In this work, we employ an alphabet-free energy landscape framework of the stickers and spacers to dissect how the low complexity patterns of proteins encode the material properties of condensates. We find a broad phase diagram of material properties determined by distinct energy landscape features, showing that periodic repeat motifs promote elastic-dominated while random sequences are viscous-dominated properties. We find that a certain degree of sticker periodicity is necessary to maintain the fluidity of condensates, preventing them from forming glassy or solid-like states. Finally, we show that the energy landscape framework captures viscoelastic trends seen in the recent experiments on prion domains and makes predictions for systematic variation of protein condensate viscoelasticity via altering the periodicity and strength of sticker motifs.
-        </em>
-      </div>
-    </div>
-  </li>
-
-  <!-- [9] -->
-  <div class="talk-box">
-      <div class="talk-title">
+<!-- [9] -->
+<div style="display: flex; margin-bottom: 2rem; flex-wrap: wrap;">
+  <div style="flex: 2; min-width: 250px;">
     <p style="margin: 0; font-size: 1.05em; font-weight: 500; font-family: Georgia, serif;">
       [9] Chromatin Binding Regulates Phase Behavior and Morphology of Condensates Formed by Prion-Like Domains
     </p>
@@ -110,61 +121,152 @@ author_profile: true
          onclick="openLightbox(this)">
   </div>
 </div>
-
-
-
-
-
-<script>
-function toggleAbstract(id, toggleLink) {
-  const abstract = document.getElementById(id);
-  const isOpen = abstract.style.display === 'block';
-
-  abstract.style.display = isOpen ? 'none' : 'block';
-  toggleLink.innerText = isOpen ? '[+] Abstract' : '[-] Hide';
-}
-</script>
-
-
-<div id="lightbox-overlay" onclick="this.style.display='none'">
-  <img src="" alt="Enlarged Poster">
+<!-- [8] -->
+<div style="display: flex; margin-bottom: 2rem; flex-wrap: wrap;">
+  <div style="flex: 2; min-width: 250px;">
+    <p style="margin: 0; font-size: 1.05em; font-weight: 500; font-family: Georgia, serif;">
+      [8] Equilibrium Morphologies of a Macromolecule Under Soft Confinement
+    </p>
+    <p>
+      <em><strong>S. Biswas</strong> and B. Chakrabarti</em><br>
+      <a href="https://doi.org/10.1021/acs.macromol.4c01614" target="_blank"><span style="font-style: italic;">Macromolecules</span>; 58(15), 8091-8098, 2025</a><br>
+      <a href="https://doi.org/10.1101/2021.05.02.442337" target="_blank"><span style="font-style: italic;">bioRxiv, 2021</span></a>
+    </p>
+  </div>
+  <div style="flex: 1; min-width: 200px; text-align: right;">
+    <img src="/images/publications/8_2025_soft_confinement_biswas.gif"
+         alt="2025"
+         class="lightbox-thumb"
+         onclick="openLightbox(this)">
+  </div>
+</div>
+<!-- [7] -->
+<div style="display: flex; margin-bottom: 2rem; flex-wrap: wrap;">
+  <div style="flex: 2; min-width: 250px;">
+    <p style="margin: 0; font-size: 1.05em; font-weight: 500; font-family: Georgia, serif;">
+      [7] Decoding Biomolecular Condensate Dynamics: An Energy Landscape Approach
+    </p>
+    <p>
+      <em><strong>S. Biswas</strong> and D.A. Potoyan</em><br>
+      <a href="https://doi.org/10.1371/journal.pcbi.1012826" target="_blank"><span style="font-style: italic;">PLOS Comp. Bio.;</span> 21(2): e1012826, 2025<br></a>
+    </p>
+  </div>
+  <div style="flex: 1; min-width: 200px; text-align: right;">
+    <img src="/images/publications/7_2025_ploscompbio_biswas.PNG"
+         alt="2021"
+         class="lightbox-thumb"
+         onclick="openLightbox(this)">
+  </div>
 </div>
 
+<!-- [6] -->
+<div style="display: flex; margin-bottom: 2rem; flex-wrap: wrap;">
+  <div style="flex: 2; min-width: 250px;">
+    <p style="margin: 0; font-size: 1.05em; font-weight: 500; font-family: Georgia, serif;">
+      [6] Molecular Drivers of Aging in Biomolecular Condensates: Desolvation, Rigidification, and Sticker Lifetimes
+    </p>
+    <p>
+      <em><strong>S. Biswas</strong> and D.A. Potoyan</em><br>
+      <a href="https://doi.org/10.1103/PRXLife.2.023011" target="_blank"><span style="font-style: italic;">PRX Life;</span> 2(2): 023011, 2024<br></a>
+    </p>
+  </div>
+  <div style="flex: 1; min-width: 200px; text-align: right;">
+    <img src="/images/publications/6_2024_prxlife_biswas.png"
+         alt="2024"
+         class="lightbox-thumb"
+         onclick="openLightbox(this)">
+  </div>
+</div>
 
+<!-- [5] -->
+<div style="display: flex; margin-bottom: 2rem; flex-wrap: wrap;">
+  <div style="flex: 2; min-width: 250px;">
+    <p style="margin: 0; font-size: 1.05em; font-weight: 500; font-family: Georgia, serif;">
+      [5] Resonant Barrier Crossing in a Modulated Classical Double Well Potential
+    </p>
+    <p>
+      <em><strong>S. Biswas</strong> and J.K. Bhattacharjee</em><br>
+      <a href="https://doi.org/10.1016/j.physleta.2023.129083" target="_blank"><span style="font-style: italic;">Physics Letters A;</span> 485: 129083, 2023<br></a>
+    </p>
+  </div>
+  <div style="flex: 1; min-width: 200px; text-align: right;">
+    <img src="/images/publications/5_2023_biswas_phys_lett_a.gif" alt="2023"
+         class="lightbox-thumb"
+         onclick="openLightbox(this)">
+  </div>
+</div>
 
-<style>
-.lightbox-thumb {
-  max-width: 100%;
-  max-height: 120px;
-  cursor: zoom-in;
-  border: 1px solid #ccc;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
+<!-- [4] -->
+<div style="display: flex; margin-bottom: 2rem; flex-wrap: wrap;">
+  <div style="flex: 2; min-width: 250px;">
+    <p style="margin: 0; font-size: 1.05em; font-weight: 500; font-family: Georgia, serif;">
+      [4] Thermodynamics Predicts a Stable Microdroplet Phase in Polymer-Gel Mixtures Undergoing Elastic Phase Separation
+    </p>
+    <p>
+      <em><strong>S. Biswas</strong>, B. Mukherjee, and B. Chakrabarti</em><br>
+      <a href="https://doi.org/10.1039/D2SM01101H" target="_blank"><span style="font-style: italic;">Soft Matter;</span> 18(42): 8117–8123, 2022<br></a>
+    </p>
+  </div>
+  <div style="flex: 1; min-width: 200px; text-align: right;">
+    <img src="/images/publications/4_2022_Biswas_SoftMatter.gif" alt="2022"
+         class="lightbox-thumb"
+         onclick="openLightbox(this)">
+  </div>
+</div>
 
-.lightbox-thumb:hover {
-  transform: scale(1.03);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-  z-index: 1;
-}
-#lightbox-overlay {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
-  background-color: rgba(0,0,0,0.8);
-  justify-content: center;
-  align-items: center;
-}
-#lightbox-overlay img {
-  max-width: 90vw;
-  max-height: 90vh;
-  border: 4px solid white;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
-  cursor: zoom-out;
-}
-</style>
+<!-- [3] -->
+<div style="display: flex; margin-bottom: 2rem; flex-wrap: wrap;">
+  <div style="flex: 2; min-width: 250px;">
+    <p style="margin: 0; font-size: 1.05em; font-weight: 500; font-family: Georgia, serif;">
+      [3] Instability Zones in the Dynamics of a Quantum Mechanical Quasiperiodic Parametric Oscillator
+    </p>
+    <p>
+      <em><strong>S. Biswas</strong>, P. Chowdhury, and J.K. Bhattacharjee</em><br>
+      <a href="https://doi.org/10.1016/j.cnsns.2020.105537" target="_blank"><span style="font-style: italic;">CNSNS;</span> 93: 105537, 2021<br></a>
+    </p>
+  </div>
+  <div style="flex: 1; min-width: 200px; text-align: right;">
+    <img src="/images/publications/3_2021_Biswas_cnsns.png" alt="2021" 
+         class="lightbox-thumb"
+         onclick="openLightbox(this)">
+  </div>
+</div>
 
+<!-- [2] -->
+<div style="display: flex; margin-bottom: 2rem; flex-wrap: wrap;">
+  <div style="flex: 2; min-width: 250px;">
+    <p style="margin: 0; font-size: 1.05em; font-weight: 500; font-family: Georgia, serif;">
+      [2] On the Properties of a Class of Higher-Order Mathieu Equations Originating from a Parametric Quantum Oscillator
+    </p>
+    <p>
+      <em><strong>S. Biswas</strong> and J.K. Bhattacharjee</em><br>
+      <a href="https://doi.org/10.1007/s11071-019-04818-9" target="_blank"><span style="font-style: italic;">Nonlinear Dynamics;</span> 96: 737–750, 2019<br></a>
+    </p>
+  </div>
+  <div style="flex: 1; min-width: 200px; text-align: right;">
+    <img src="/images/publications/2_2019_biswasnonlinear_dynamics.webp" alt="2019" 
+         class="lightbox-thumb"
+         onclick="openLightbox(this)">
+  </div>
+</div>
+
+<!-- [1] -->
+<div style="display: flex; margin-bottom: 2rem; flex-wrap: wrap;">
+  <div style="flex: 2; min-width: 250px;">
+    <p style="margin: 0; font-size: 1.05em; font-weight: 500; font-family: Georgia, serif;">
+      [1] Propagation of Arbitrary Initial Wave Packets in a Quantum Parametric Oscillator: Instability Zones for Higher-Order Moments
+    </p>
+    <p>
+      <em><strong>S. Biswas</strong>, R. Chattopadhyay, and J.K. Bhattacharjee</em><br>
+      <a href="https://doi.org/10.1016/j.physleta.2018.03.011" target="_blank"><span style="font-style: italic;">Physics Letters A;</span> 382(18): 1202–1206, 2018<br></a>
+    </p>
+  </div>
+  <div style="flex: 1; min-width: 200px; text-align: right;">
+    <img src="/images/publications/1_2018_Biswas_PhysLettA.jpg" alt="2018" 
+         class="lightbox-thumb"
+         onclick="openLightbox(this)">
+  </div>
+</div>
 
 
 
