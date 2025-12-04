@@ -21,7 +21,18 @@ author_profile: true
 }
 
 /* BibTeX details block */
-.bibtex-details summary {
+.bibtex-details {
+  position: relative;
+  margin-top: 0.5em;
+  padding: 0.75em 1em 1em;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  font-size: 0.9em;
+}
+
+/* The clickable "BibTeX" text */
+.bibtex-details > summary {
   cursor: pointer;
   font-size: 0.9em;
   color: #1a73e8;
@@ -34,14 +45,6 @@ author_profile: true
   border: none;            /* <-- remove box */
 }
 
-/* The clickable "BibTeX" text */
-.bibtex-details > summary {
-  cursor: pointer;
-  font-size: 0.9em;
-  color: #1a73e8;
-  text-decoration: underline;
-  list-style: none;
-}
 
 /* Hide the default triangle marker */
 .bibtex-details > summary::-webkit-details-marker {
