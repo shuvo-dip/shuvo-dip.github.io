@@ -108,6 +108,96 @@ author_profile: true
 }
 </style>
 
+<style>
+/* --- "Export Citation" button --- */
+.export-cite-btn {
+  display: inline-block;
+  padding: 0.25em 0.9em;
+  border-radius: 4px;
+  border: 1px solid #1a73e8;
+  background-color: #ffffff;
+  color: #1a73e8;
+  font-size: 0.85em;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.export-cite-btn:hover {
+  background-color: #1a73e8;
+  color: #ffffff;
+  border-color: #1a73e8;
+}
+
+/* --- BibTeX lightbox overlay --- */
+#bibtex-overlay {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.75);
+  justify-content: center;
+  align-items: center;
+}
+
+/* Box in the middle of the screen */
+.bibtex-modal {
+  background: #ffffff;
+  width: min(90vw, 700px);
+  max-height: 80vh;
+  padding: 1.25rem 1.5rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.35);
+  position: relative;
+  overflow: auto;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-size: 0.9em;
+}
+
+/* Header area inside the modal */
+.bibtex-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* Close (X) button */
+.bibtex-close {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1.3em;
+  line-height: 1;
+}
+
+/* Copy button inside modal */
+.bibtex-copy {
+  border: 1px solid #1a73e8;
+  background: #ffffff;
+  color: #1a73e8;
+  border-radius: 4px;
+  padding: 0.15em 0.6em;
+  font-size: 0.8em;
+  cursor: pointer;
+  margin-right: 0.25rem;
+}
+
+.bibtex-copy:hover {
+  background: #1a73e8;
+  color: #ffffff;
+}
+
+/* The BibTeX text block */
+#bibtex-modal-text {
+  white-space: pre;
+  overflow-x: auto;
+  margin: 0;
+}
+</style>
+
 
 
 <p align="center">
@@ -182,37 +272,29 @@ author_profile: true
       [9] Chromatin Binding Regulates Phase Behavior and Morphology of Condensates Formed by Prion-Like Domains
     </p>
     <p>
-      <em>A. Supakar<sup>&dagger;</sup>, R. Davis<sup>&dagger;</sup>, <strong>S. Biswas<sup>&dagger;</sup></strong>, S. Yang, D.A. Potoyan and P.R. Banerjee</em><br>
-      <a href="https://doi.org/10.1016/j.jmb.2025.169398" target="_blank">
-        <span style="font-style: italic;">JMB;</span> 437(21), 169398, 2025
-      </a><br>
-      <a href="http://dx.doi.org/10.2139/ssrn.5235049" target="_blank">
-        <span style="font-style: italic;">SSRN;</span> 2025
-      </a>
-      <details class="bibtex-details">
-        <summary>BibTeX</summary>
-        <button type="button"
-                class="bibtex-copy"
-                onclick="copyBibtex('bib9-text')"
-                title="Copy BibTeX">
-          📋
-        </button>
-        <pre id="bib9-text">
-            @article{Biswas2025ChromatinCondensates,
-              title   = {Chromatin Binding Regulates Phase Behavior and Morphology of Condensates Formed by Prion-Like Domains},
-              author  = {Supakar, Ananya and Davis, Rachel and Biswas, Subhadip and Yang, Shuai and Potoyan, Davit A. and Banerjee, Prashant R.},
-              journal = {Journal of Molecular Biology},
-              year    = {2025},
-              volume  = {437},
-              number  = {21},
-              pages   = {169398},
-              doi     = {10.1016/j.jmb.2025.169398}
-            }
-        </pre>
-      </details>
-      <br>
-      <small><sup>&dagger;</sup> Equal contribution</small><br>
-      </p>
+    <em>A. Supakar<sup>&dagger;</sup>, R. Davis<sup>&dagger;</sup>, 
+    <strong>S. Biswas<sup>&dagger;</sup></strong>, S. Yang, D.A. Potoyan and P.R. Banerjee</em><br>
+
+    <a href="https://doi.org/10.1016/j.jmb.2025.169398" target="_blank">
+      <span style="font-style: italic;">JMB;</span> 437(21), 169398, 2025
+    </a>, 
+
+    <a href="http://dx.doi.org/10.2139/ssrn.5235049" target="_blank">
+      <span style="font-style: italic;">SSRN;</span> 2025
+    </a>
+
+    <!-- INLINE Export Citation Button -->
+    <button type="button"
+            class="export-cite-btn"
+            onclick="openBibtexModal('bib9')"
+            style="margin-left: 0.5em;">
+      Export Citation
+    </button>
+
+    <br>
+    <small><sup>&dagger;</sup> Equal contribution</small>
+  </p>
+
   </div>
 
   <div style="flex: 1; min-width: 200px; text-align: right;">
@@ -384,35 +466,58 @@ function openLightbox(img) {
 }
 </script>
 <script>
-function copyBibtex(preId) {
-  const pre = document.getElementById(preId);
-  const text = pre.innerText;
+/* Map of publication IDs to BibTeX text */
+const bibtexData = {
+  bib9: `@article{Supakar2025ChromatinCondensates,
+  title   = {Chromatin Binding Regulates Phase Behavior and Morphology of Condensates Formed by Prion-Like Domains},
+  author  = {Supakar, Ananya and Davis, Rachel and Biswas, Subhadip and Yang, Shuai and Potoyan, Davit A. and Banerjee, Prashant R.},
+  journal = {Journal of Molecular Biology},
+  year    = {2025},
+  volume  = {437},
+  number  = {21},
+  pages   = {169398},
+  doi     = {10.1016/j.jmb.2025.169398}
+}`
+  // Add more entries like:
+  // bib8: `@article{...}`,
+  // bib7: `...`,
+};
+
+let currentBibtexId = null;
+
+function openBibtexModal(id) {
+  currentBibtexId = id;
+  const text = bibtexData[id] || '';
+  document.getElementById('bibtex-modal-text').innerText = text;
+  document.getElementById('bibtex-overlay').style.display = 'flex';
+}
+
+function closeBibtexModal() {
+  document.getElementById('bibtex-overlay').style.display = 'none';
+}
+
+/* Copy BibTeX text from modal */
+function copyBibtex() {
+  const text = document.getElementById('bibtex-modal-text').innerText;
 
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(text)
-      .then(() => {
-        alert('BibTeX copied to clipboard');
-      })
-      .catch(() => fallbackCopy(pre, text));
+      .then(() => alert('BibTeX copied to clipboard'))
+      .catch(() => alert('Copy failed — please copy manually.'));
   } else {
-    fallbackCopy(pre, text);
-  }
-}
-
-function fallbackCopy(pre, text) {
-  const range = document.createRange();
-  range.selectNodeContents(pre);
-  const selection = window.getSelection();
-  selection.removeAllRanges();
-  selection.addRange(range);
-
-  try {
-    const success = document.execCommand('copy');
-    alert(success
-      ? 'BibTeX copied to clipboard'
-      : 'Press Ctrl+C / Cmd+C to copy the BibTeX');
-  } catch (err) {
-    alert('Press Ctrl+C / Cmd+C to copy the BibTeX');
+    // Fallback
+    const range = document.createRange();
+    const pre = document.getElementById('bibtex-modal-text');
+    range.selectNodeContents(pre);
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    try {
+      const ok = document.execCommand('copy');
+      alert(ok ? 'BibTeX copied to clipboard' : 'Press Ctrl+C / Cmd+C to copy');
+    } catch (err) {
+      alert('Press Ctrl+C / Cmd+C to copy');
+    }
   }
 }
 </script>
