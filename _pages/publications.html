@@ -206,10 +206,10 @@ author_profile: true
         <span style="font-style: italic;">SSRN;</span> 2025
       </a>
 
-      <!-- Export Citation Button -->
+      <!-- Export Citation Button with data attribute -->
       <button type="button"
               class="export-cite-btn"
-              onclick="openBibtexModal('bib9')">
+              data-bibtex-id="bib9">
         Export Citation
       </button>
 
@@ -260,6 +260,34 @@ const bibtexData = {
 }`
 };
 
+// Wait for DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+  // Add click event listeners to all Export Citation buttons
+  const exportButtons = document.querySelectorAll('.export-cite-btn');
+  
+  exportButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const bibtexId = this.getAttribute('data-bibtex-id');
+      openBibtexModal(bibtexId);
+    });
+  });
+  
+  // Close modal when clicking outside
+  const overlay = document.getElementById('bibtex-overlay');
+  overlay.addEventListener('click', function(e) {
+    if (e.target === this) {
+      closeBibtexModal();
+    }
+  });
+  
+  // Close modal with Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeBibtexModal();
+    }
+  });
+});
+
 // Open BibTeX modal
 function openBibtexModal(bibtexId) {
   const text = bibtexData[bibtexId] || "BibTeX not available.";
@@ -290,9 +318,13 @@ function copyBibtex() {
       textArea.value = text;
       document.body.appendChild(textArea);
       textArea.select();
-      document.execCommand("copy");
+      try {
+        document.execCommand("copy");
+        alert("BibTeX copied to clipboard!");
+      } catch (e) {
+        alert("Failed to copy. Please copy manually.");
+      }
       document.body.removeChild(textArea);
-      alert("BibTeX copied to clipboard!");
     });
 }
 
@@ -302,11 +334,4 @@ function openLightbox(img) {
   overlay.style.display = 'flex';
   overlay.querySelector('img').src = img.src;
 }
-
-// Close overlay when clicking outside the modal
-document.getElementById('bibtex-overlay').addEventListener('click', function(e) {
-  if (e.target === this) {
-    closeBibtexModal();
-  }
-});
 </script>
