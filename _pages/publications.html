@@ -4,7 +4,9 @@ title: "Publications"
 permalink: /publications/
 author_profile: true
 ---
+
 <style>
+/* Card layout for each entry */
 .talk-box {
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -20,18 +22,66 @@ author_profile: true
   box-shadow: 4px 6px 15px rgba(0,0,0,0.12);
 }
 
+/* Thumbnail images (posters / TOC figures) */
+.lightbox-thumb {
+  max-width: 100%;
+  max-height: 200px;
+  cursor: zoom-in;
+  border: 1px solid #ccc;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.lightbox-thumb:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  z-index: 1;
+}
 
-/* your existing lightbox styles can stay as they are */
-</style>
-<style>
-/* --- BibTeX overlay, like an image lightbox but for text --- */
+/* Image lightbox overlay */
+#lightbox-overlay {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background-color: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+#lightbox-overlay img {
+  max-width: 70vw;
+  max-height: 70vh;
+  border: 4px solid white;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  cursor: zoom-out;
+}
+
+/* --- "Export Citation" button (APS-style) --- */
+.export-cite-btn {
+  display: inline-block;
+  padding: 0.25em 0.9em;
+  border-radius: 4px;
+  border: 1px solid #1a73e8;
+  background-color: #ffffff;
+  color: #1a73e8;
+  font-size: 0.85em;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.export-cite-btn:hover {
+  background-color: #1a73e8;
+  color: #ffffff;
+  border-color: #1a73e8;
+}
+
+/* --- BibTeX overlay (full-page, non-interactive background) --- */
 #bibtex-overlay {
-  display: none;                 /* hidden by default */
+  display: none;
   position: fixed;
   z-index: 10000;
   top: 0; left: 0;
   width: 100vw; height: 100vh;
-  background: rgba(0,0,0,0.75);  /* dark background */
+  background: rgba(0,0,0,0.75);
   justify-content: center;
   align-items: center;
 }
@@ -50,7 +100,7 @@ author_profile: true
   font-size: 0.9em;
 }
 
-/* Header area inside the modal */
+/* Header inside the modal */
 .bibtex-modal-header {
   display: flex;
   align-items: center;
@@ -68,7 +118,7 @@ author_profile: true
   line-height: 1;
 }
 
-/* Copy button (optional, we’ll wire later) */
+/* Copy button */
 .bibtex-copy-btn {
   border: 1px solid #1a73e8;
   background: #ffffff;
@@ -79,7 +129,6 @@ author_profile: true
   cursor: pointer;
   margin-right: 0.25rem;
 }
-
 .bibtex-copy-btn:hover {
   background: #1a73e8;
   color: #ffffff;
@@ -92,196 +141,6 @@ author_profile: true
   margin: 0;
 }
 </style>
-
-
-<style>
-.lightbox-thumb {
-  max-width: 100%;
-  max-height: 200px;
-  cursor: zoom-in;
-  border: 1px solid #ccc;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.lightbox-thumb:hover {
-  transform: scale(1.03);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-  z-index: 1;
-}
-
-
-#lightbox-overlay {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
-  background-color: rgba(0,0,0,0.8);
-  justify-content: center;
-  align-items: center;
-}
-
-#lightbox-overlay img {
-  max-width: 70vw;
-  max-height: 70vh;
-  border: 4px solid white;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
-  cursor: zoom-out;
-}
-</style>
-
-<style>
-/* --- "Export Citation" button --- */
-.export-cite-btn {
-  display: inline-block;
-  padding: 0.25em 0.9em;
-  border-radius: 4px;
-  border: 1px solid #1a73e8;
-  background-color: #ffffff;
-  color: #1a73e8;
-  font-size: 0.85em;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
-}
-
-.export-cite-btn:hover {
-  background-color: #1a73e8;
-  color: #ffffff;
-  border-color: #1a73e8;
-}
-
-/* --- BibTeX lightbox overlay --- */
-#bibtex-overlay {
-  display: none;
-  position: fixed;
-  z-index: 10000;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
-  background: rgba(0,0,0,0.75);
-  justify-content: center;
-  align-items: center;
-}
-
-/* Box in the middle of the screen */
-.bibtex-modal {
-  background: #ffffff;
-  width: min(90vw, 700px);
-  max-height: 80vh;
-  padding: 1.25rem 1.5rem 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 0 25px rgba(0,0,0,0.35);
-  position: relative;
-  overflow: auto;
-  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-  font-size: 0.9em;
-}
-
-/* Header area inside the modal */
-.bibtex-modal-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 0.75rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-}
-
-/* Close (X) button */
-.bibtex-close {
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  font-size: 1.3em;
-  line-height: 1;
-}
-
-/* Copy button inside modal */
-.bibtex-copy {
-  border: 1px solid #1a73e8;
-  background: #ffffff;
-  color: #1a73e8;
-  border-radius: 4px;
-  padding: 0.15em 0.6em;
-  font-size: 0.8em;
-  cursor: pointer;
-  margin-right: 0.25rem;
-}
-
-.bibtex-copy:hover {
-  background: #1a73e8;
-  color: #ffffff;
-}
-
-/* The BibTeX text block */
-#bibtex-modal-text {
-  white-space: pre;
-  overflow-x: auto;
-  margin: 0;
-}
-</style>
-<style>
-.talk-box {
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.08);
-  padding: 1em;
-  margin-bottom: 2em;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  display: flex;
-  flex-wrap: wrap;
-  position: relative; /* anchor the popup to each card */
-}
-.talk-box:hover {
-  transform: translateY(-4px);
-  box-shadow: 4px 6px 15px rgba(0,0,0,0.12);
-}
-
-/* clickable text */
-.bibtex-popup-link {
-  cursor: pointer;
-  font-size: 0.9em;
-  color: #1a73e8;
-  text-decoration: underline;
-}
-
-/* the small popup box */
-.bibtex-popup {
-  display: none;
-  position: absolute;
-  right: 0;              /* popup sticks to the right side of the card */
-  top: 100%;             /* just below the card */
-  margin-top: 0.5rem;
-  background: #ffffff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 0.75rem 1rem 1rem;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
-  max-width: 32rem;
-  z-index: 50;
-}
-
-/* BibTeX text */
-.bibtex-popup pre {
-  margin: 0;
-  white-space: pre;
-  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-  font-size: 0.85em;
-  overflow-x: auto;
-}
-
-/* small X button inside popup */
-.bibtex-popup-close {
-  position: absolute;
-  top: 4px;
-  right: 8px;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  font-size: 1.1em;
-  line-height: 1;
-}
-</style>
-
 
 
 <p align="center">
@@ -297,13 +156,10 @@ author_profile: true
 </p>
 
 
-
-
 <h2>Preprints</h2>
 <hr />
 
 <!-- [1] -->
-
 <div class="talk-box">
   <div style="flex: 2; min-width: 250px;">
     <p style="margin: 0; font-size: 1.05em; font-weight: 500; font-family: Georgia, serif;">
@@ -328,35 +184,17 @@ author_profile: true
 <h2>Peer-Reviewed Publications</h2>
 <hr />
 
-<!-- [9] -->
-<!-- <div class="talk-box">
-  <div style="flex: 2; min-width: 250px;">
-    <p style="margin: 0; font-size: 1.05em; font-weight: 500; font-family: Georgia, serif;">
-      [9] Chromatin Binding Regulates Phase Behavior and Morphology of Condensates Formed by Prion-Like Domains
-    </p>
-    <p>
-      <em>A. Supakar<sup>&dagger;</sup>, R. Davis<sup>&dagger;</sup>, <strong>S. Biswas<sup>&dagger;</sup></strong>, S. Yang, D.A. Potoyan and P.R. Banerjee</em><br>
-      <a href="https://doi.org/10.1016/j.jmb.2025.169398" target="_blank"><span style="font-style: italic;">JMB;</span> 437(21), 169398, 2025</a><br>
-      <a href="http://dx.doi.org/10.2139/ssrn.5235049" target="_blank"><span style="font-style: italic;">SSRN;</span> 2025</a><br>
-      <small><sup>&dagger;</sup> Equal contribution</small>
-    </p>
-  </div>
-  <div style="flex: 1; min-width: 200px; text-align: right;">
-    <img src="/images/publications/9_2025_jmb_chromatin.jpg" 
-         alt="2025"
-         class="lightbox-thumb"
-         onclick="openLightbox(this)">
-  </div>
-</div> -->
-<!-- [9] -->
+<!-- [9] JMB paper with Export Citation -->
 <div class="talk-box">
   <div style="flex: 2; min-width: 250px;">
     <p style="margin: 0; font-size: 1.05em; font-weight: 500; font-family: Georgia, serif;">
       [9] Chromatin Binding Regulates Phase Behavior and Morphology of Condensates Formed by Prion-Like Domains
     </p>
     <p>
-      <em>A. Supakar<sup>&dagger;</sup>, R. Davis<sup>&dagger;</sup>, 
-      <strong>S. Biswas<sup>&dagger;</sup></strong>, S. Yang, D.A. Potoyan and P.R. Banerjee</em><br>
+      <em>
+        A. Supakar<sup>&dagger;</sup>, R. Davis<sup>&dagger;</sup>, 
+        <strong>S. Biswas<sup>&dagger;</sup></strong>, S. Yang, D.A. Potoyan and P.R. Banerjee
+      </em><br>
 
       <a href="https://doi.org/10.1016/j.jmb.2025.169398" target="_blank">
         <span style="font-style: italic;">JMB;</span> 437(21), 169398, 2025
@@ -366,7 +204,7 @@ author_profile: true
         <span style="font-style: italic;">SSRN;</span> 2025
       </a>
 
-      <!-- Export Citation link (inline) -->
+      <!-- Export Citation button inline -->
       <button type="button"
               class="export-cite-btn"
               style="margin-left: 0.5em;"
@@ -378,7 +216,7 @@ author_profile: true
       <small><sup>&dagger;</sup> Equal contribution</small>
     </p>
 
-    <!-- HIDDEN BibTeX source for this paper -->
+    <!-- Hidden BibTeX for this paper (source for the overlay) -->
     <pre id="bib9-bibtex" style="display: none;">
 @article{Supakar2025ChromatinCondensates,
   title   = {Chromatin Binding Regulates Phase Behavior and Morphology of Condensates Formed by Prion-Like Domains},
@@ -401,371 +239,13 @@ author_profile: true
   </div>
 </div>
 
-<!-- [9] -->
-<div class="talk-box">
-  <div style="flex: 2; min-width: 250px;">
-    <p style="margin: 0; font-size: 1.05em; font-weight: 500; font-family: Georgia, serif;">
-      [9] Chromatin Binding Regulates Phase Behavior and Morphology of Condensates Formed by Prion-Like Domains
-    </p>
-    <p>
-      <em>A. Supakar<sup>&dagger;</sup>, R. Davis<sup>&dagger;</sup>, 
-      <strong>S. Biswas<sup>&dagger;</sup></strong>, S. Yang, D.A. Potoyan and P.R. Banerjee</em><br>
 
-      <a href="https://doi.org/10.1016/j.jmb.2025.169398" target="_blank">
-        <span style="font-style: italic;">JMB;</span> 437(21), 169398, 2025
-      </a>, 
-
-      <a href="http://dx.doi.org/10.2139/ssrn.5235049" target="_blank">
-        <span style="font-style: italic;">SSRN;</span> 2025
-      </a>
-
-      <!-- simple text link -->
-      <span class="bibtex-popup-link"
-            onclick="toggleBibtex('bib9-popup')">
-        Export Citation
-      </span>
-
-      <br>
-      <small><sup>&dagger;</sup> Equal contribution</small>
-    </p>
-
-    <!-- small BibTeX popup for THIS publication -->
-    <div id="bib9-popup" class="bibtex-popup">
-      <button type="button"
-              class="bibtex-popup-close"
-              onclick="closeBibtex('bib9-popup')">
-        ✖
-      </button>
-      <pre>
-@article{Supakar2025ChromatinCondensates,
-  title   = {Chromatin Binding Regulates Phase Behavior and Morphology of Condensates Formed by Prion-Like Domains},
-  author  = {Supakar, Ananya and Davis, Rachel and Biswas, Subhadip and Yang, Shuai and Potoyan, Davit A. and Banerjee, Prashant R.},
-  journal = {Journal of Molecular Biology},
-  year    = {2025},
-  volume  = {437},
-  number  = {21},
-  pages   = {169398},
-  doi     = {10.1016/j.jmb.2025.169398}
-}
-      </pre>
-    </div>
-  </div>
-
-  <div style="flex: 1; min-width: 200px; text-align: right;">
-    <img src="/images/publications/9_2025_jmb_chromatin.jpg" 
-         alt="2025"
-         class="lightbox-thumb"
-         onclick="openLightbox(this)">
-  </div>
-</div>
-
-<!-- [9] -->
-<div class="talk-box">
-  <div style="flex: 2; min-width: 250px;">
-    <p style="margin: 0; font-size: 1.05em; font-weight: 500; font-family: Georgia, serif;">
-      [9] Chromatin Binding Regulates Phase Behavior and Morphology of Condensates Formed by Prion-Like Domains
-    </p>
-    <p>
-    <em>A. Supakar<sup>&dagger;</sup>, R. Davis<sup>&dagger;</sup>, 
-    <strong>S. Biswas<sup>&dagger;</sup></strong>, S. Yang, D.A. Potoyan and P.R. Banerjee</em><br>
-
-    <a href="https://doi.org/10.1016/j.jmb.2025.169398" target="_blank">
-      <span style="font-style: italic;">JMB;</span> 437(21), 169398, 2025
-    </a>, 
-
-    <a href="http://dx.doi.org/10.2139/ssrn.5235049" target="_blank">
-      <span style="font-style: italic;">SSRN;</span> 2025
-    </a>
-
-    <!-- INLINE Export Citation Button -->
-    <button type="button"
-            class="export-cite-btn"
-            data-bibtex-id="bib9"
-            style="margin-left: 0.5em;">
-      Export Citation
-    </button>
-
-
-    <br>
-    <small><sup>&dagger;</sup> Equal contribution</small>
-  </p>
-
-  </div>
-
-  <div style="flex: 1; min-width: 200px; text-align: right;">
-    <img src="/images/publications/9_2025_jmb_chromatin.jpg" 
-         alt="2025"
-         class="lightbox-thumb"
-         onclick="openLightbox(this)">
-  </div>
-</div>
-
-<!-- [8] -->
-<div class="talk-box">
-  <div style="flex: 2; min-width: 250px;">
-    <p style="margin: 0; font-size: 1.05em; font-weight: 500; font-family: Georgia, serif;">
-      [8] Equilibrium Morphologies of a Macromolecule Under Soft Confinement
-    </p>
-    <p>
-      <em><strong>S. Biswas</strong> and B. Chakrabarti</em><br>
-      <a href="https://doi.org/10.1021/acs.macromol.4c01614" target="_blank"><span style="font-style: italic;">Macromolecules</span>; 58(15), 8091-8098, 2025</a><br>
-      <a href="https://doi.org/10.1101/2021.05.02.442337" target="_blank"><span style="font-style: italic;">bioRxiv, 2021</span></a>
-    </p>
-  </div>
-  <div style="flex: 1; min-width: 200px; text-align: right;">
-    <img src="/images/publications/8_2025_soft_confinement_biswas.gif"
-         alt="2025"
-         class="lightbox-thumb"
-         onclick="openLightbox(this)">
-  </div>
-</div>
-<!-- [7] -->
-<div class="talk-box">
-  <div style="flex: 2; min-width: 250px;">
-    <p style="margin: 0; font-size: 1.05em; font-weight: 500; font-family: Georgia, serif;">
-      [7] Decoding Biomolecular Condensate Dynamics: An Energy Landscape Approach
-    </p>
-    <p>
-      <em><strong>S. Biswas</strong> and D.A. Potoyan</em><br>
-      <a href="https://doi.org/10.1371/journal.pcbi.1012826" target="_blank"><span style="font-style: italic;">PLOS Comp. Bio.;</span> 21(2): e1012826, 2025<br></a>
-    </p>
-  </div>
-  <div style="flex: 1; min-width: 200px; text-align: right;">
-    <img src="/images/publications/7_2025_ploscompbio_biswas.PNG"
-         alt="2021"
-         class="lightbox-thumb"
-         onclick="openLightbox(this)">
-  </div>
-</div>
-
-<!-- [6] -->
-<div class="talk-box">
-  <div style="flex: 2; min-width: 250px;">
-    <p style="margin: 0; font-size: 1.05em; font-weight: 500; font-family: Georgia, serif;">
-      [6] Molecular Drivers of Aging in Biomolecular Condensates: Desolvation, Rigidification, and Sticker Lifetimes
-    </p>
-    <p>
-      <em><strong>S. Biswas</strong> and D.A. Potoyan</em><br>
-      <a href="https://doi.org/10.1103/PRXLife.2.023011" target="_blank"><span style="font-style: italic;">PRX Life;</span> 2(2): 023011, 2024<br></a>
-    </p>
-  </div>
-  <div style="flex: 1; min-width: 200px; text-align: right;">
-    <img src="/images/publications/6_2024_prxlife_biswas.png"
-         alt="2024"
-         class="lightbox-thumb"
-         onclick="openLightbox(this)">
-  </div>
-</div>
-
-<!-- [5] -->
-<div class="talk-box">
-  <div style="flex: 2; min-width: 250px;">
-    <p style="margin: 0; font-size: 1.05em; font-weight: 500; font-family: Georgia, serif;">
-      [5] Resonant Barrier Crossing in a Modulated Classical Double Well Potential
-    </p>
-    <p>
-      <em><strong>S. Biswas</strong> and J.K. Bhattacharjee</em><br>
-      <a href="https://doi.org/10.1016/j.physleta.2023.129083" target="_blank"><span style="font-style: italic;">Physics Letters A;</span> 485: 129083, 2023<br></a>
-    </p>
-  </div>
-  <div style="flex: 1; min-width: 200px; text-align: right;">
-    <img src="/images/publications/5_2023_biswas_phys_lett_a.gif" alt="2023"
-         class="lightbox-thumb"
-         onclick="openLightbox(this)">
-  </div>
-</div>
-
-<!-- [4] -->
-<div class="talk-box">
-  <div style="flex: 2; min-width: 250px;">
-    <p style="margin: 0; font-size: 1.05em; font-weight: 500; font-family: Georgia, serif;">
-      [4] Thermodynamics Predicts a Stable Microdroplet Phase in Polymer-Gel Mixtures Undergoing Elastic Phase Separation
-    </p>
-    <p>
-      <em><strong>S. Biswas</strong>, B. Mukherjee, and B. Chakrabarti</em><br>
-      <a href="https://doi.org/10.1039/D2SM01101H" target="_blank"><span style="font-style: italic;">Soft Matter;</span> 18(42): 8117–8123, 2022<br></a>
-    </p>
-  </div>
-  <div style="flex: 1; min-width: 200px; text-align: right;">
-    <img src="/images/publications/4_2022_Biswas_SoftMatter.gif" alt="2022"
-         class="lightbox-thumb"
-         onclick="openLightbox(this)">
-  </div>
-</div>
-
-<!-- [3] -->
-<div class="talk-box">
-  <div style="flex: 2; min-width: 250px;">
-    <p style="margin: 0; font-size: 1.05em; font-weight: 500; font-family: Georgia, serif;">
-      [3] Instability Zones in the Dynamics of a Quantum Mechanical Quasiperiodic Parametric Oscillator
-    </p>
-    <p>
-      <em><strong>S. Biswas</strong>, P. Chowdhury, and J.K. Bhattacharjee</em><br>
-      <a href="https://doi.org/10.1016/j.cnsns.2020.105537" target="_blank"><span style="font-style: italic;">CNSNS;</span> 93: 105537, 2021<br></a>
-    </p>
-  </div>
-  <div style="flex: 1; min-width: 200px; text-align: right;">
-    <img src="/images/publications/3_2021_Biswas_cnsns.png" alt="2021" 
-         class="lightbox-thumb"
-         onclick="openLightbox(this)">
-  </div>
-</div>
-
-<!-- [2] -->
-<div class="talk-box">
-  <div style="flex: 2; min-width: 250px;">
-    <p style="margin: 0; font-size: 1.05em; font-weight: 500; font-family: Georgia, serif;">
-      [2] On the Properties of a Class of Higher-Order Mathieu Equations Originating from a Parametric Quantum Oscillator
-    </p>
-    <p>
-      <em><strong>S. Biswas</strong> and J.K. Bhattacharjee</em><br>
-      <a href="https://doi.org/10.1007/s11071-019-04818-9" target="_blank"><span style="font-style: italic;">Nonlinear Dynamics;</span> 96: 737–750, 2019<br></a>
-    </p>
-  </div>
-  <div style="flex: 1; min-width: 200px; text-align: right;">
-    <img src="/images/publications/2_2019_biswasnonlinear_dynamics.webp" alt="2019" 
-         class="lightbox-thumb"
-         onclick="openLightbox(this)">
-  </div>
-</div>
-
-<!-- [1] -->
-<div class="talk-box">
-  <div style="flex: 2; min-width: 250px;">
-    <p style="margin: 0; font-size: 1.05em; font-weight: 500; font-family: Georgia, serif;">
-      [1] Propagation of Arbitrary Initial Wave Packets in a Quantum Parametric Oscillator: Instability Zones for Higher-Order Moments
-    </p>
-    <p>
-      <em><strong>S. Biswas</strong>, R. Chattopadhyay, and J.K. Bhattacharjee</em><br>
-      <a href="https://doi.org/10.1016/j.physleta.2018.03.011" target="_blank"><span style="font-style: italic;">Physics Letters A;</span> 382(18): 1202–1206, 2018<br></a>
-    </p>
-  </div>
-  <div style="flex: 1; min-width: 200px; text-align: right;">
-    <img src="/images/publications/1_2018_Biswas_PhysLettA.jpg" alt="2018" 
-         class="lightbox-thumb"
-         onclick="openLightbox(this)">
-  </div>
-</div>
-
-
-
+<!-- Image lightbox overlay -->
 <div id="lightbox-overlay" onclick="this.style.display='none'">
   <img src="" alt="Enlarged Image">
 </div>
 
-
-<div id="bibtex-overlay" onclick="closeBibtexModal()">
-  <div class="bibtex-modal" onclick="event.stopPropagation()">
-    <div class="bibtex-modal-header">
-      <span><strong>Export Citation (BibTeX)</strong></span>
-      <div>
-        <button class="bibtex-copy" onclick="copyBibtex()">Copy</button>
-        <button class="bibtex-close" onclick="closeBibtexModal()">✖</button>
-      </div>
-    </div>
-    <pre id="bibtex-modal-text"></pre>
-  </div>
-</div>
-
-<script>
-function openLightbox(img) {
-  const overlay = document.getElementById('lightbox-overlay');
-  overlay.style.display = 'flex';
-  overlay.querySelector('img').src = img.src;
-}
-</script>
-<script>
-// Map of publication IDs to BibTeX text
-var bibtexData = {
-  bib9: "@article{Supakar2025ChromatinCondensates,\n" +
-        "  title   = {Chromatin Binding Regulates Phase Behavior and Morphology of Condensates Formed by Prion-Like Domains},\n" +
-        "  author  = {Supakar, Ananya and Davis, Rachel and Biswas, Subhadip and Yang, Shuai and Potoyan, Davit A. and Banerjee, Prashant R.},\n" +
-        "  journal = {Journal of Molecular Biology},\n" +
-        "  year    = {2025},\n" +
-        "  volume  = {437},\n" +
-        "  number  = {21},\n" +
-        "  pages   = {169398},\n" +
-        "  doi     = {10.1016/j.jmb.2025.169398}\n" +
-        "}"
-};
-
-// Attach click handlers once the DOM is ready
-document.addEventListener("DOMContentLoaded", function () {
-  var buttons = document.querySelectorAll(".export-cite-btn");
-  buttons.forEach(function (btn) {
-    btn.addEventListener("click", function (e) {
-      var id = btn.getAttribute("data-bibtex-id");
-      openBibtexModal(id);
-    });
-  });
-});
-
-function openBibtexModal(id) {
-  var text = bibtexData[id] || "";
-  var pre = document.getElementById("bibtex-modal-text");
-  var overlay = document.getElementById("bibtex-overlay");
-
-  pre.innerText = text;
-  overlay.style.display = "flex";
-}
-
-function closeBibtexModal() {
-  var overlay = document.getElementById("bibtex-overlay");
-  overlay.style.display = "none";
-}
-
-// Copy BibTeX text from modal
-function copyBibtex() {
-  var pre = document.getElementById("bibtex-modal-text");
-  var text = pre.innerText;
-
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(text)
-      .then(function () {
-        alert("BibTeX copied to clipboard");
-      })
-      .catch(function () {
-        fallbackCopy(pre);
-      });
-  } else {
-    fallbackCopy(pre);
-  }
-}
-
-function fallbackCopy(pre) {
-  var range = document.createRange();
-  range.selectNodeContents(pre);
-  var sel = window.getSelection();
-  sel.removeAllRanges();
-  sel.addRange(range);
-
-  try {
-    var ok = document.execCommand("copy");
-    alert(ok ? "BibTeX copied to clipboard" : "Press Ctrl+C / Cmd+C to copy");
-  } catch (err) {
-    alert("Press Ctrl+C / Cmd+C to copy");
-  }
-}
-</script>
-
-
-
-
-<script>
-function toggleBibtex(id) {
-  var box = document.getElementById(id);
-  if (!box) return;
-  box.style.display = (box.style.display === 'block') ? 'none' : 'block';
-}
-
-function closeBibtex(id) {
-  var box = document.getElementById(id);
-  if (!box) return;
-  box.style.display = 'none';
-}
-</script>
-
-
+<!-- BibTeX overlay (single global modal) -->
 <div id="bibtex-overlay" onclick="closeBibtexOverlay()">
   <div class="bibtex-modal" onclick="event.stopPropagation()">
     <div class="bibtex-modal-header">
@@ -787,8 +267,15 @@ function closeBibtex(id) {
   </div>
 </div>
 
-
 <script>
+/* Image lightbox */
+function openLightbox(img) {
+  var overlay = document.getElementById('lightbox-overlay');
+  overlay.style.display = 'flex';
+  overlay.querySelector('img').src = img.src;
+}
+
+/* Open BibTeX overlay from hidden <pre> */
 function openBibtexOverlay(sourceId) {
   var source = document.getElementById(sourceId);
   if (!source) return;
@@ -800,11 +287,13 @@ function openBibtexOverlay(sourceId) {
   overlay.style.display = "flex";
 }
 
+/* Close BibTeX overlay */
 function closeBibtexOverlay() {
   var overlay = document.getElementById("bibtex-overlay");
   overlay.style.display = "none";
 }
 
+/* Copy BibTeX text from overlay */
 function copyBibtexFromOverlay() {
   var pre = document.getElementById("bibtex-overlay-text");
   var text = pre.textContent;
