@@ -480,61 +480,68 @@ function openLightbox(img) {
 }
 </script>
 <script>
-/* Map of publication IDs to BibTeX text */
-const bibtexData = {
-  bib9: `@article{Supakar2025ChromatinCondensates,
-  title   = {Chromatin Binding Regulates Phase Behavior and Morphology of Condensates Formed by Prion-Like Domains},
-  author  = {Supakar, Ananya and Davis, Rachel and Biswas, Subhadip and Yang, Shuai and Potoyan, Davit A. and Banerjee, Prashant R.},
-  journal = {Journal of Molecular Biology},
-  year    = {2025},
-  volume  = {437},
-  number  = {21},
-  pages   = {169398},
-  doi     = {10.1016/j.jmb.2025.169398}
-}`
-  // Add more entries like:
-  // bib8: `@article{...}`,
-  // bib7: `...`,
+// Map of publication IDs to BibTeX text
+var bibtexData = {
+  bib9: "@article{Supakar2025ChromatinCondensates,\n" +
+        "  title   = {Chromatin Binding Regulates Phase Behavior and Morphology of Condensates Formed by Prion-Like Domains},\n" +
+        "  author  = {Supakar, Ananya and Davis, Rachel and Biswas, Subhadip and Yang, Shuai and Potoyan, Davit A. and Banerjee, Prashant R.},\n" +
+        "  journal = {Journal of Molecular Biology},\n" +
+        "  year    = {2025},\n" +
+        "  volume  = {437},\n" +
+        "  number  = {21},\n" +
+        "  pages   = {169398},\n" +
+        "  doi     = {10.1016/j.jmb.2025.169398}\n" +
+        "}"
 };
 
-let currentBibtexId = null;
-
 function openBibtexModal(id) {
-  currentBibtexId = id;
-  const text = bibtexData[id] || '';
-  document.getElementById('bibtex-modal-text').innerText = text;
-  document.getElementById('bibtex-overlay').style.display = 'flex';
+  var text = bibtexData[id] || "";
+  var pre = document.getElementById("bibtex-modal-text");
+  var overlay = document.getElementById("bibtex-overlay");
+
+  pre.innerText = text;
+  overlay.style.display = "flex";
 }
 
 function closeBibtexModal() {
-  document.getElementById('bibtex-overlay').style.display = 'none';
+  var overlay = document.getElementById("bibtex-overlay");
+  overlay.style.display = "none";
 }
 
-/* Copy BibTeX text from modal */
+// Copy BibTeX text from modal
 function copyBibtex() {
-  const text = document.getElementById('bibtex-modal-text').innerText;
+  var pre = document.getElementById("bibtex-modal-text");
+  var text = pre.innerText;
 
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(text)
-      .then(() => alert('BibTeX copied to clipboard'))
-      .catch(() => alert('Copy failed — please copy manually.'));
+      .then(function () {
+        alert("BibTeX copied to clipboard");
+      })
+      .catch(function () {
+        fallbackCopy(pre);
+      });
   } else {
-    // Fallback
-    const range = document.createRange();
-    const pre = document.getElementById('bibtex-modal-text');
-    range.selectNodeContents(pre);
-    const sel = window.getSelection();
-    sel.removeAllRanges();
-    sel.addRange(range);
-    try {
-      const ok = document.execCommand('copy');
-      alert(ok ? 'BibTeX copied to clipboard' : 'Press Ctrl+C / Cmd+C to copy');
-    } catch (err) {
-      alert('Press Ctrl+C / Cmd+C to copy');
-    }
+    fallbackCopy(pre);
+  }
+}
+
+function fallbackCopy(pre) {
+  var range = document.createRange();
+  range.selectNodeContents(pre);
+  var sel = window.getSelection();
+  sel.removeAllRanges();
+  sel.addRange(range);
+
+  try {
+    var ok = document.execCommand("copy");
+    alert(ok ? "BibTeX copied to clipboard" : "Press Ctrl+C / Cmd+C to copy");
+  } catch (err) {
+    alert("Press Ctrl+C / Cmd+C to copy");
   }
 }
 </script>
+
 
 
 
