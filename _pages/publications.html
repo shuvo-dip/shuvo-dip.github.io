@@ -197,6 +197,68 @@ author_profile: true
   margin: 0;
 }
 </style>
+<style>
+.talk-box {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.08);
+  padding: 1em;
+  margin-bottom: 2em;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative; /* anchor the popup to each card */
+}
+.talk-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 4px 6px 15px rgba(0,0,0,0.12);
+}
+
+/* clickable text */
+.bibtex-popup-link {
+  cursor: pointer;
+  font-size: 0.9em;
+  color: #1a73e8;
+  text-decoration: underline;
+}
+
+/* the small popup box */
+.bibtex-popup {
+  display: none;
+  position: absolute;
+  right: 0;              /* popup sticks to the right side of the card */
+  top: 100%;             /* just below the card */
+  margin-top: 0.5rem;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 0.75rem 1rem 1rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  max-width: 32rem;
+  z-index: 50;
+}
+
+/* BibTeX text */
+.bibtex-popup pre {
+  margin: 0;
+  white-space: pre;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-size: 0.85em;
+  overflow-x: auto;
+}
+
+/* small X button inside popup */
+.bibtex-popup-close {
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1.1em;
+  line-height: 1;
+}
+</style>
 
 
 
@@ -264,6 +326,63 @@ author_profile: true
          onclick="openLightbox(this)">
   </div>
 </div> -->
+<!-- [9] -->
+<div class="talk-box">
+  <div style="flex: 2; min-width: 250px;">
+    <p style="margin: 0; font-size: 1.05em; font-weight: 500; font-family: Georgia, serif;">
+      [9] Chromatin Binding Regulates Phase Behavior and Morphology of Condensates Formed by Prion-Like Domains
+    </p>
+    <p>
+      <em>A. Supakar<sup>&dagger;</sup>, R. Davis<sup>&dagger;</sup>, 
+      <strong>S. Biswas<sup>&dagger;</sup></strong>, S. Yang, D.A. Potoyan and P.R. Banerjee</em><br>
+
+      <a href="https://doi.org/10.1016/j.jmb.2025.169398" target="_blank">
+        <span style="font-style: italic;">JMB;</span> 437(21), 169398, 2025
+      </a>, 
+
+      <a href="http://dx.doi.org/10.2139/ssrn.5235049" target="_blank">
+        <span style="font-style: italic;">SSRN;</span> 2025
+      </a>
+
+      <!-- simple text link -->
+      <span class="bibtex-popup-link"
+            onclick="toggleBibtex('bib9-popup')">
+        Export Citation
+      </span>
+
+      <br>
+      <small><sup>&dagger;</sup> Equal contribution</small>
+    </p>
+
+    <!-- small BibTeX popup for THIS publication -->
+    <div id="bib9-popup" class="bibtex-popup">
+      <button type="button"
+              class="bibtex-popup-close"
+              onclick="closeBibtex('bib9-popup')">
+        ✖
+      </button>
+      <pre>
+@article{Supakar2025ChromatinCondensates,
+  title   = {Chromatin Binding Regulates Phase Behavior and Morphology of Condensates Formed by Prion-Like Domains},
+  author  = {Supakar, Ananya and Davis, Rachel and Biswas, Subhadip and Yang, Shuai and Potoyan, Davit A. and Banerjee, Prashant R.},
+  journal = {Journal of Molecular Biology},
+  year    = {2025},
+  volume  = {437},
+  number  = {21},
+  pages   = {169398},
+  doi     = {10.1016/j.jmb.2025.169398}
+}
+      </pre>
+    </div>
+  </div>
+
+  <div style="flex: 1; min-width: 200px; text-align: right;">
+    <img src="/images/publications/9_2025_jmb_chromatin.jpg" 
+         alt="2025"
+         class="lightbox-thumb"
+         onclick="openLightbox(this)">
+  </div>
+</div>
 
 <!-- [9] -->
 <div class="talk-box">
@@ -557,3 +676,16 @@ function fallbackCopy(pre) {
 
 
 
+<script>
+function toggleBibtex(id) {
+  var box = document.getElementById(id);
+  if (!box) return;
+  box.style.display = (box.style.display === 'block') ? 'none' : 'block';
+}
+
+function closeBibtex(id) {
+  var box = document.getElementById(id);
+  if (!box) return;
+  box.style.display = 'none';
+}
+</script>
