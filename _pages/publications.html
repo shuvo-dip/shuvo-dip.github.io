@@ -236,7 +236,7 @@ author_profile: true
   box-shadow: 4px 6px 15px rgba(0,0,0,0.12);
 }
 
-/* clickable text */
+/* clickable link text */
 .bibtex-popup-link {
   cursor: pointer;
   font-size: 0.9em;
@@ -244,42 +244,73 @@ author_profile: true
   text-decoration: underline;
 }
 
-/* the small popup box */
-.bibtex-popup {
+/* full-screen dark background */
+#bibtex-overlay {
   display: none;
-  position: absolute;
-  right: 0;              /* popup sticks to the right side of the card */
-  top: 100%;             /* just below the card */
-  margin-top: 0.5rem;
+  position: fixed;
+  z-index: 10000;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.75);
+  justify-content: center;
+  align-items: center;
+}
+
+/* center box for BibTeX */
+.bibtex-modal {
   background: #ffffff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 0.75rem 1rem 1rem;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
-  max-width: 32rem;
-  z-index: 50;
-}
-
-/* BibTeX text */
-.bibtex-popup pre {
-  margin: 0;
-  white-space: pre;
+  width: min(90vw, 700px);
+  max-height: 80vh;
+  padding: 1.25rem 1.5rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.35);
+  position: relative;
+  overflow: auto;
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-  font-size: 0.85em;
-  overflow-x: auto;
+  font-size: 0.9em;
 }
 
-/* small X button inside popup */
-.bibtex-popup-close {
-  position: absolute;
-  top: 4px;
-  right: 8px;
+/* header inside modal */
+.bibtex-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* X button */
+.bibtex-close-btn {
   border: none;
   background: transparent;
   cursor: pointer;
-  font-size: 1.1em;
+  font-size: 1.3em;
   line-height: 1;
 }
+
+/* Copy button */
+.bibtex-copy-btn {
+  border: 1px solid #1a73e8;
+  background: #ffffff;
+  color: #1a73e8;
+  border-radius: 4px;
+  padding: 0.15em 0.6em;
+  font-size: 0.8em;
+  cursor: pointer;
+  margin-right: 0.25rem;
+}
+.bibtex-copy-btn:hover {
+  background: #1a73e8;
+  color: #ffffff;
+}
+
+/* BibTeX text */
+#bibtex-overlay-text {
+  white-space: pre;
+  overflow-x: auto;
+  margin: 0;
+}
+
 </style>
 
 
@@ -346,9 +377,9 @@ author_profile: true
         <span style="font-style: italic;">SSRN;</span> 2025
       </a>
 
-      <!-- simple text link -->
+      <!-- clickable Export Citation text -->
       <span class="bibtex-popup-link"
-            onclick="toggleBibtex('bib9-popup')">
+            onclick="openBibtexOverlay('bib9-bibtex')">
         Export Citation
       </span>
 
@@ -356,14 +387,8 @@ author_profile: true
       <small><sup>&dagger;</sup> Equal contribution</small>
     </p>
 
-    <!-- small BibTeX popup for THIS publication -->
-    <div id="bib9-popup" class="bibtex-popup">
-      <button type="button"
-              class="bibtex-popup-close"
-              onclick="closeBibtex('bib9-popup')">
-        ✖
-      </button>
-      <pre>
+    <!-- hidden BibTeX source -->
+    <pre id="bib9-bibtex" style="display:none;">
 @article{Supakar2025ChromatinCondensates,
   title   = {Chromatin Binding Regulates Phase Behavior and Morphology of Condensates Formed by Prion-Like Domains},
   author  = {Supakar, Ananya and Davis, Rachel and Biswas, Subhadip and Yang, Shuai and Potoyan, Davit A. and Banerjee, Prashant R.},
@@ -374,8 +399,7 @@ author_profile: true
   pages   = {169398},
   doi     = {10.1016/j.jmb.2025.169398}
 }
-      </pre>
-    </div>
+    </pre>
   </div>
 
   <div style="flex: 1; min-width: 200px; text-align: right;">
@@ -385,6 +409,7 @@ author_profile: true
          onclick="openLightbox(this)">
   </div>
 </div>
+
 
 <!-- [9] -->
 <div class="talk-box">
@@ -746,6 +771,53 @@ function copyBibtexFromOverlay() {
       });
   } else {
     // Fallback: select text for manual copy
+    var range = document.createRange();
+    range.selectNodeContents(pre);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    alert("Press Ctrl+C / Cmd+C to copy the BibTeX");
+  }
+}
+</script>
+
+
+<script>
+function openLightbox(img) {
+  var overlay = document.getElementById('lightbox-overlay');
+  overlay.style.display = 'flex';
+  overlay.querySelector('img').src = img.src;
+}
+
+function openBibtexOverlay(sourceId) {
+  var source = document.getElementById(sourceId);
+  if (!source) return;
+
+  var overlay = document.getElementById("bibtex-overlay");
+  var textTarget = document.getElementById("bibtex-overlay-text");
+
+  textTarget.textContent = source.textContent.trim();
+  overlay.style.display = "flex";
+}
+
+function closeBibtexOverlay() {
+  var overlay = document.getElementById("bibtex-overlay");
+  overlay.style.display = "none";
+}
+
+function copyBibtexFromOverlay() {
+  var pre = document.getElementById("bibtex-overlay-text");
+  var text = pre.textContent;
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text)
+      .then(function () {
+        alert("BibTeX copied to clipboard");
+      })
+      .catch(function () {
+        alert("Copy failed — please copy manually.");
+      });
+  } else {
     var range = document.createRange();
     range.selectNodeContents(pre);
     var sel = window.getSelection();
