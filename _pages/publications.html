@@ -286,10 +286,11 @@ author_profile: true
     <!-- INLINE Export Citation Button -->
     <button type="button"
             class="export-cite-btn"
-            onclick="openBibtexModal('bib9')"
+            data-bibtex-id="bib9"
             style="margin-left: 0.5em;">
       Export Citation
     </button>
+
 
     <br>
     <small><sup>&dagger;</sup> Equal contribution</small>
@@ -493,6 +494,17 @@ var bibtexData = {
         "  doi     = {10.1016/j.jmb.2025.169398}\n" +
         "}"
 };
+
+// Attach click handlers once the DOM is ready
+document.addEventListener("DOMContentLoaded", function () {
+  var buttons = document.querySelectorAll(".export-cite-btn");
+  buttons.forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      var id = btn.getAttribute("data-bibtex-id");
+      openBibtexModal(id);
+    });
+  });
+});
 
 function openBibtexModal(id) {
   var text = bibtexData[id] || "";
