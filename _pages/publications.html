@@ -23,6 +23,75 @@ author_profile: true
 
 /* your existing lightbox styles can stay as they are */
 </style>
+<style>
+/* --- BibTeX overlay, like an image lightbox but for text --- */
+#bibtex-overlay {
+  display: none;                 /* hidden by default */
+  position: fixed;
+  z-index: 10000;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.75);  /* dark background */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Centered box for BibTeX text */
+.bibtex-modal {
+  background: #ffffff;
+  width: min(90vw, 700px);
+  max-height: 80vh;
+  padding: 1.25rem 1.5rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.35);
+  position: relative;
+  overflow: auto;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-size: 0.9em;
+}
+
+/* Header area inside the modal */
+.bibtex-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* Close (X) button */
+.bibtex-close-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1.3em;
+  line-height: 1;
+}
+
+/* Copy button (optional, we’ll wire later) */
+.bibtex-copy-btn {
+  border: 1px solid #1a73e8;
+  background: #ffffff;
+  color: #1a73e8;
+  border-radius: 4px;
+  padding: 0.15em 0.6em;
+  font-size: 0.8em;
+  cursor: pointer;
+  margin-right: 0.25rem;
+}
+
+.bibtex-copy-btn:hover {
+  background: #1a73e8;
+  color: #ffffff;
+}
+
+/* Text inside modal */
+#bibtex-overlay-text {
+  white-space: pre;
+  overflow-x: auto;
+  margin: 0;
+}
+</style>
 
 
 <style>
@@ -279,6 +348,59 @@ author_profile: true
          onclick="openLightbox(this)">
   </div>
 </div> -->
+<!-- [9] -->
+<div class="talk-box">
+  <div style="flex: 2; min-width: 250px;">
+    <p style="margin: 0; font-size: 1.05em; font-weight: 500; font-family: Georgia, serif;">
+      [9] Chromatin Binding Regulates Phase Behavior and Morphology of Condensates Formed by Prion-Like Domains
+    </p>
+    <p>
+      <em>A. Supakar<sup>&dagger;</sup>, R. Davis<sup>&dagger;</sup>, 
+      <strong>S. Biswas<sup>&dagger;</sup></strong>, S. Yang, D.A. Potoyan and P.R. Banerjee</em><br>
+
+      <a href="https://doi.org/10.1016/j.jmb.2025.169398" target="_blank">
+        <span style="font-style: italic;">JMB;</span> 437(21), 169398, 2025
+      </a>, 
+
+      <a href="http://dx.doi.org/10.2139/ssrn.5235049" target="_blank">
+        <span style="font-style: italic;">SSRN;</span> 2025
+      </a>
+
+      <!-- Export Citation link (inline) -->
+      <button type="button"
+              class="export-cite-btn"
+              style="margin-left: 0.5em;"
+              onclick="openBibtexOverlay('bib9-bibtex')">
+        Export Citation
+      </button>
+
+      <br>
+      <small><sup>&dagger;</sup> Equal contribution</small>
+    </p>
+
+    <!-- HIDDEN BibTeX source for this paper -->
+    <pre id="bib9-bibtex" style="display: none;">
+@article{Supakar2025ChromatinCondensates,
+  title   = {Chromatin Binding Regulates Phase Behavior and Morphology of Condensates Formed by Prion-Like Domains},
+  author  = {Supakar, Ananya and Davis, Rachel and Biswas, Subhadip and Yang, Shuai and Potoyan, Davit A. and Banerjee, Prashant R.},
+  journal = {Journal of Molecular Biology},
+  year    = {2025},
+  volume  = {437},
+  number  = {21},
+  pages   = {169398},
+  doi     = {10.1016/j.jmb.2025.169398}
+}
+    </pre>
+  </div>
+
+  <div style="flex: 1; min-width: 200px; text-align: right;">
+    <img src="/images/publications/9_2025_jmb_chromatin.jpg" 
+         alt="2025"
+         class="lightbox-thumb"
+         onclick="openLightbox(this)">
+  </div>
+</div>
+
 <!-- [9] -->
 <div class="talk-box">
   <div style="flex: 2; min-width: 250px;">
@@ -640,5 +762,69 @@ function closeBibtex(id) {
   var box = document.getElementById(id);
   if (!box) return;
   box.style.display = 'none';
+}
+</script>
+
+
+<div id="bibtex-overlay" onclick="closeBibtexOverlay()">
+  <div class="bibtex-modal" onclick="event.stopPropagation()">
+    <div class="bibtex-modal-header">
+      <span><strong>Export Citation (BibTeX)</strong></span>
+      <div>
+        <button type="button"
+                class="bibtex-copy-btn"
+                onclick="copyBibtexFromOverlay()">
+          Copy
+        </button>
+        <button type="button"
+                class="bibtex-close-btn"
+                onclick="closeBibtexOverlay()">
+          ✖
+        </button>
+      </div>
+    </div>
+    <pre id="bibtex-overlay-text"></pre>
+  </div>
+</div>
+
+
+<script>
+function openBibtexOverlay(sourceId) {
+  var source = document.getElementById(sourceId);
+  if (!source) return;
+
+  var overlay = document.getElementById("bibtex-overlay");
+  var textTarget = document.getElementById("bibtex-overlay-text");
+
+  textTarget.textContent = source.textContent.trim();
+  overlay.style.display = "flex";
+}
+
+function closeBibtexOverlay() {
+  var overlay = document.getElementById("bibtex-overlay");
+  overlay.style.display = "none";
+}
+
+function copyBibtexFromOverlay() {
+  var pre = document.getElementById("bibtex-overlay-text");
+  var text = pre.textContent;
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text)
+      .then(function () {
+        alert("BibTeX copied to clipboard");
+      })
+      .catch(function () {
+        alert("Copy failed — please copy manually.");
+      });
+  } else {
+    // Fallback: select text for manual copy
+    var range = document.createRange();
+    range.selectNodeContents(pre);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    alert("Press Ctrl+C / Cmd+C to copy the BibTeX");
+  }
 }
 </script>
