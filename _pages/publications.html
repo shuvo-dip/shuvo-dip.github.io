@@ -21,7 +21,40 @@ author_profile: true
   box-shadow: 4px 6px 15px rgba(0,0,0,0.12);
 }
 
-/* Export Citation Button */
+/* Thumbnail images */
+.lightbox-thumb {
+  max-width: 100%;
+  max-height: 200px;
+  cursor: zoom-in;
+  border: 1px solid #ccc;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.lightbox-thumb:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  z-index: 1;
+}
+
+/* Image lightbox */
+#lightbox-overlay {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background-color: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+#lightbox-overlay img {
+  max-width: 70vw;
+  max-height: 70vh;
+  border: 4px solid white;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  cursor: zoom-out;
+}
+
+/* Export Citation button */
 .export-cite-btn {
   display: inline-block;
   padding: 0.25em 0.9em;
@@ -33,49 +66,14 @@ author_profile: true
   cursor: pointer;
   text-decoration: none;
   transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
-  margin-left: 0.5em;
 }
-
 .export-cite-btn:hover {
   background-color: #1a73e8;
   color: #ffffff;
   border-color: #1a73e8;
 }
 
-/* Lightbox for images */
-.lightbox-thumb {
-  max-width: 100%;
-  max-height: 200px;
-  cursor: zoom-in;
-  border: 1px solid #ccc;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.lightbox-thumb:hover {
-  transform: scale(1.03);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-}
-
-#lightbox-overlay {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
-  background-color: rgba(0,0,0,0.8);
-  justify-content: center;
-  align-items: center;
-}
-
-#lightbox-overlay img {
-  max-width: 70vw;
-  max-height: 70vh;
-  border: 4px solid white;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
-  cursor: zoom-out;
-}
-
-/* BibTeX Overlay Popup */
+/* BibTeX overlay */
 #bibtex-overlay {
   display: none;
   position: fixed;
@@ -87,6 +85,7 @@ author_profile: true
   align-items: center;
 }
 
+/* Centered BibTeX box */
 .bibtex-modal {
   background: #ffffff;
   width: min(90vw, 700px);
@@ -99,7 +98,6 @@ author_profile: true
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
   font-size: 0.9em;
 }
-
 .bibtex-modal-header {
   display: flex;
   align-items: center;
@@ -107,47 +105,34 @@ author_profile: true
   margin-bottom: 0.75rem;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
-
 .bibtex-close-btn {
   border: none;
   background: transparent;
   cursor: pointer;
   font-size: 1.3em;
   line-height: 1;
-  color: #666;
 }
-
-.bibtex-close-btn:hover {
-  color: #000;
-}
-
 .bibtex-copy-btn {
   border: 1px solid #1a73e8;
   background: #ffffff;
   color: #1a73e8;
   border-radius: 4px;
-  padding: 0.3em 0.8em;
-  font-size: 0.9em;
+  padding: 0.15em 0.6em;
+  font-size: 0.8em;
   cursor: pointer;
-  margin-right: 0.5rem;
-  transition: background-color 0.15s ease, color 0.15s ease;
+  margin-right: 0.25rem;
 }
-
 .bibtex-copy-btn:hover {
   background: #1a73e8;
   color: #ffffff;
 }
-
 #bibtex-overlay-text {
   white-space: pre;
   overflow-x: auto;
   margin: 0;
-  background: #f8f9fa;
-  padding: 1rem;
-  border-radius: 5px;
-  border: 1px solid #eaeaea;
 }
 </style>
+
 
 <p align="center">
   <a href="https://scholar.google.com/citations?user=QUuN9CwAAAAJ" target="_blank">
@@ -161,42 +146,21 @@ author_profile: true
   </a>
 </p>
 
-<h2>Preprints</h2>
-<hr />
-
-<!-- [1] -->
-<div class="talk-box">
-  <div style="flex: 2; min-width: 250px;">
-    <p style="margin: 0; font-size: 1.05em; font-weight: 500; font-family: Georgia, serif;">
-      [1] Backbone Rigidity Encodes Universal Viscoelastic Signatures in Biomolecular Condensates
-    </p>
-    <p>
-      <em>S. Yang, <strong>S. Biswas</strong> and D.A. Potoyan</em><br>
-      <a href="https://www.biorxiv.org/content/10.1101/2025.06.10.658939.abstract" target="_blank">
-        <span style="font-style: italic;">bioRxiv;</span> 2025.06.10.658939, 2025
-      </a>
-    </p>
-  </div>
-  <div style="flex: 1; min-width: 200px; text-align: right;">
-    <img src="/images/publications/2025_biorxiv_viscoelastic.jpg"
-         alt="2025"
-         class="lightbox-thumb"
-         onclick="openLightbox(this)">
-  </div>
-</div>
 
 <h2>Peer-Reviewed Publications</h2>
 <hr />
 
-<!-- [9] -->
+<!-- SINGLE TEST ENTRY -->
 <div class="talk-box">
   <div style="flex: 2; min-width: 250px;">
     <p style="margin: 0; font-size: 1.05em; font-weight: 500; font-family: Georgia, serif;">
       [9] Chromatin Binding Regulates Phase Behavior and Morphology of Condensates Formed by Prion-Like Domains
     </p>
     <p>
-      <em>A. Supakar<sup>&dagger;</sup>, R. Davis<sup>&dagger;</sup>, 
-      <strong>S. Biswas<sup>&dagger;</sup></strong>, S. Yang, D.A. Potoyan and P.R. Banerjee</em><br>
+      <em>
+        A. Supakar<sup>&dagger;</sup>, R. Davis<sup>&dagger;</sup>, 
+        <strong>S. Biswas<sup>&dagger;</sup></strong>, S. Yang, D.A. Potoyan and P.R. Banerjee
+      </em><br>
 
       <a href="https://doi.org/10.1016/j.jmb.2025.169398" target="_blank">
         <span style="font-style: italic;">JMB;</span> 437(21), 169398, 2025
@@ -206,16 +170,31 @@ author_profile: true
         <span style="font-style: italic;">SSRN;</span> 2025
       </a>
 
-      <!-- Export Citation Button with data attribute -->
+      <!-- Export Citation button -->
       <button type="button"
               class="export-cite-btn"
-              data-bibtex-id="bib9">
+              style="margin-left: 0.5em;"
+              onclick="openBibtexOverlay('bib9-bibtex')">
         Export Citation
       </button>
 
       <br>
       <small><sup>&dagger;</sup> Equal contribution</small>
     </p>
+
+    <!-- Hidden BibTeX source -->
+    <pre id="bib9-bibtex" style="display: none;">
+@article{Supakar2025ChromatinCondensates,
+  title   = {Chromatin Binding Regulates Phase Behavior and Morphology of Condensates Formed by Prion-Like Domains},
+  author  = {Supakar, Ananya and Davis, Rachel and Biswas, Subhadip and Yang, Shuai and Potoyan, Davit A. and Banerjee, Prashant R.},
+  journal = {Journal of Molecular Biology},
+  year    = {2025},
+  volume  = {437},
+  number  = {21},
+  pages   = {169398},
+  doi     = {10.1016/j.jmb.2025.169398}
+}
+    </pre>
   </div>
 
   <div style="flex: 1; min-width: 200px; text-align: right;">
@@ -226,19 +205,28 @@ author_profile: true
   </div>
 </div>
 
-<!-- Lightbox for images -->
+
+<!-- Image lightbox -->
 <div id="lightbox-overlay" onclick="this.style.display='none'">
   <img src="" alt="Enlarged Image">
 </div>
 
-<!-- BibTeX Overlay Popup -->
-<div id="bibtex-overlay">
-  <div class="bibtex-modal">
+<!-- BibTeX overlay -->
+<div id="bibtex-overlay" onclick="closeBibtexOverlay()">
+  <div class="bibtex-modal" onclick="event.stopPropagation()">
     <div class="bibtex-modal-header">
       <span><strong>Export Citation (BibTeX)</strong></span>
       <div>
-        <button class="bibtex-copy-btn" onclick="copyBibtex()">Copy</button>
-        <button class="bibtex-close-btn" onclick="closeBibtexModal()">✖</button>
+        <button type="button"
+                class="bibtex-copy-btn"
+                onclick="copyBibtexFromOverlay()">
+          Copy
+        </button>
+        <button type="button"
+                class="bibtex-close-btn"
+                onclick="closeBibtexOverlay()">
+          ✖
+        </button>
       </div>
     </div>
     <pre id="bibtex-overlay-text"></pre>
@@ -246,92 +234,55 @@ author_profile: true
 </div>
 
 <script>
-// BibTeX data for each publication
-const bibtexData = {
-  bib9: `@article{Supakar2025ChromatinCondensates,
-  title   = {Chromatin Binding Regulates Phase Behavior and Morphology of Condensates Formed by Prion-Like Domains},
-  author  = {Supakar, Ananya and Davis, Rachel and Biswas, Subhadip and Yang, Shuai and Potoyan, Davit A. and Banerjee, Prashant R.},
-  journal = {Journal of Molecular Biology},
-  year    = {2025},
-  volume  = {437},
-  number  = {21},
-  pages   = {169398},
-  doi     = {10.1016/j.jmb.2025.169398}
-}`
-};
+function openLightbox(img) {
+  var overlay = document.getElementById('lightbox-overlay');
+  overlay.style.display = 'flex';
+  overlay.querySelector('img').src = img.src;
+}
 
-// Wait for DOM to be fully loaded
-document.addEventListener('DOMContentLoaded', function() {
-  // Add click event listeners to all Export Citation buttons
-  const exportButtons = document.querySelectorAll('.export-cite-btn');
-  
-  exportButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      const bibtexId = this.getAttribute('data-bibtex-id');
-      openBibtexModal(bibtexId);
-    });
-  });
-  
-  // Close modal when clicking outside
-  const overlay = document.getElementById('bibtex-overlay');
-  overlay.addEventListener('click', function(e) {
-    if (e.target === this) {
-      closeBibtexModal();
-    }
-  });
-  
-  // Close modal with Escape key
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      closeBibtexModal();
-    }
-  });
-});
+// DEBUG: you should see this alert when the page loads
+alert("BibTeX script loaded");
 
-// Open BibTeX modal
-function openBibtexModal(bibtexId) {
-  const text = bibtexData[bibtexId] || "BibTeX not available.";
-  const overlay = document.getElementById("bibtex-overlay");
-  const textElement = document.getElementById("bibtex-overlay-text");
-  
-  textElement.textContent = text;
+function openBibtexOverlay(sourceId) {
+  alert("Button clicked for " + sourceId);  // DEBUG: you should see this when clicking
+
+  var source = document.getElementById(sourceId);
+  if (!source) {
+    alert("No element found with id " + sourceId);
+    return;
+  }
+
+  var overlay = document.getElementById("bibtex-overlay");
+  var textTarget = document.getElementById("bibtex-overlay-text");
+
+  textTarget.textContent = source.textContent.trim();
   overlay.style.display = "flex";
 }
 
-// Close BibTeX modal
-function closeBibtexModal() {
-  document.getElementById("bibtex-overlay").style.display = "none";
+function closeBibtexOverlay() {
+  var overlay = document.getElementById("bibtex-overlay");
+  overlay.style.display = "none";
 }
 
-// Copy BibTeX to clipboard
-function copyBibtex() {
-  const text = document.getElementById("bibtex-overlay-text").textContent;
-  
-  navigator.clipboard.writeText(text)
-    .then(() => {
-      alert("BibTeX copied to clipboard!");
-    })
-    .catch(err => {
-      console.error("Failed to copy: ", err);
-      // Fallback for older browsers
-      const textArea = document.createElement("textarea");
-      textArea.value = text;
-      document.body.appendChild(textArea);
-      textArea.select();
-      try {
-        document.execCommand("copy");
-        alert("BibTeX copied to clipboard!");
-      } catch (e) {
-        alert("Failed to copy. Please copy manually.");
-      }
-      document.body.removeChild(textArea);
-    });
-}
+function copyBibtexFromOverlay() {
+  var pre = document.getElementById("bibtex-overlay-text");
+  var text = pre.textContent;
 
-// Lightbox functionality for images
-function openLightbox(img) {
-  const overlay = document.getElementById('lightbox-overlay');
-  overlay.style.display = 'flex';
-  overlay.querySelector('img').src = img.src;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text)
+      .then(function () {
+        alert("BibTeX copied to clipboard");
+      })
+      .catch(function () {
+        alert("Copy failed — please copy manually.");
+      });
+  } else {
+    var range = document.createRange();
+    range.selectNodeContents(pre);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    alert("Press Ctrl+C / Cmd+C to copy the BibTeX");
+  }
 }
 </script>
