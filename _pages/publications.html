@@ -239,9 +239,17 @@ author_profile: true
 /* clickable link text */
 .bibtex-popup-link {
   cursor: pointer;
-  font-size: 0.9em;
   color: #1a73e8;
-  text-decoration: underline;
+  display:inline-block;
+  margin-left:0.15em;
+  padding:0.15em 0.45em;   /* ← main change */
+  border-radius:2px;
+  border:1px solid #1a73e8;
+  background:#5a8af1;
+  font-size:0.75em;
+  line-height:1;           /* ← important */
+  text-decoration:none;
+  transition:0.15s;
 }
 
 /* full-screen dark background */
