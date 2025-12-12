@@ -316,16 +316,22 @@ author_profile: true
 .pdf-btn{
   display:inline-block;
   margin-left:0.15em;
-  padding:0.5em 0.9em;
-  border-radius:1px;
+  padding:0.15em 0.45em;   /* ← main change */
+  border-radius:2px;
   border:1px solid #555;
   background:#fff;
   color:#555;
-  font-size:0.5em;
+  font-size:0.75em;
+  line-height:1;           /* ← important */
   text-decoration:none;
   transition:0.15s;
 }
-.pdf-btn:hover{ background:#555; color:#fff; }
+
+.pdf-btn:hover{
+  background:#555;
+  color:#fff;
+}
+
 </style>
 <style>
 .scholar-btn {
@@ -468,8 +474,7 @@ author_profile: true
       <em><strong>S. Biswas</strong> and B. Chakrabarti</em><br>
       <a href="https://doi.org/10.1021/acs.macromol.4c01614" target="_blank"><span style="font-style: italic;">Macromolecules</span>; 58(15), 8091-8098, 2025</a><br>
       <a href="https://doi.org/10.1101/2021.05.02.442337" target="_blank"><span style="font-style: italic;">bioRxiv, 2021</span></a>
-    </p>
-        <a class="pdf-btn"
+      <a class="pdf-btn"
         href="https://docs.google.com/forms/d/e/1FAIpQLSdmsmoVQpWqdPQxuJdYmnuxrL51ylfnLTa1d_2t2ZDSSUiCbg/viewform?usp=pp_url&entry.839337160=Hi+Shuvo,%0A%0AI+would+like+to+request+a+copy+of+your+paper(s)+listed+above+for+research+and+educational+purposes.%0A%0AThank+you+very+much.%0A"
         target="_blank">
         Request PDF
@@ -484,25 +489,22 @@ author_profile: true
 
       <!-- clickable Export Citation text -->
       <span class="bibtex-popup-link"
-            onclick="openBibtexOverlay('bib9-bibtex')">
+            onclick="openBibtexOverlay('bib8-bibtex')">
         Export Citation
       </span>
-
-
-      <br>
-      <small><sup>&dagger;</sup> Equal contribution</small>
     </p>
 
     <!-- hidden BibTeX source -->
-    <pre id="bib9-bibtex" style="display:none;">@article{Supakar2025ChromatinCondensates,
-      title   = {Chromatin Binding Regulates Phase Behavior and Morphology of Condensates Formed by Prion-Like Domains},
-      author  = {Supakar, Ananya and Davis, Rachel and Biswas, Subhadip and Yang, Shuai and Potoyan, Davit A. and Banerjee, Prashant R.},
-      journal = {Journal of Molecular Biology},
-      year    = {2025},
-      volume  = {437},
-      number  = {21},
-      pages   = {169398},
-      doi     = {10.1016/j.jmb.2025.169398}
+    <pre id="bib8-bibtex" style="display:none;">@article{biswas2025equilibrium,
+      title={Equilibrium Morphologies of a Macromolecule under Soft Confinement},
+      author={Biswas, Subhadip and Chakrabarti, Buddhapriya},
+      journal={Macromolecules},
+      volume={58},
+      number={15},
+      pages={8091--8098},
+      year={2025},
+      doi={https://pubs.acs.org/doi/10.1021/acs.macromol.4c01614},
+      publisher={ACS Publications}
     }</pre>
   </div>
   <div style="flex: 1; min-width: 200px; text-align: right;">
