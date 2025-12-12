@@ -327,6 +327,26 @@ author_profile: true
 }
 .pdf-btn:hover{ background:#555; color:#fff; }
 </style>
+<style>
+.scholar-btn {
+  display: inline-block;
+  margin-left: 0.4em;
+  padding: 0.15em 0.45em;
+  border: 1px solid #4285f4;
+  border-radius: 4px;
+  background: #fff;
+  transition: background 0.15s ease;
+}
+.scholar-btn:hover {
+  background: #4285f4;
+}
+.scholar-btn img {
+  filter: grayscale(100%);
+}
+.scholar-btn:hover img {
+  filter: grayscale(0%);
+}
+</style>
 
 
 
@@ -396,6 +416,14 @@ author_profile: true
         target="_blank">
         Request PDF
       </a>
+<a href="PASTE_GOOGLE_SCHOLAR_PAPER_LINK_HERE"
+   target="_blank"
+   class="scholar-btn"
+   title="View on Google Scholar">
+  <img src="https://scholar.googleusercontent.com/scholar_logo.png"
+       alt="Google Scholar"
+       style="height:18px; vertical-align:middle;">
+</a>
 
       <!-- clickable Export Citation text -->
       <span class="bibtex-popup-link"
