@@ -238,20 +238,19 @@ author_profile: true
 
 /* clickable link text */
 .bibtex-popup-link {
-  cursor: pointer;
+  border: 1px solid #1a73e8;
+  background: #ffffff;
   color: #1a73e8;
-  display:inline-block;
-  margin-left:0.15em;
-  padding:0.15em 0.45em;   /* ← main change */
-  border-radius:2px;
-  border:1px solid #1a73e8;
-  background:#5a8af1;
-  font-size:0.75em;
-  line-height:1;           /* ← important */
-  text-decoration:none;
-  transition:0.15s;
+  border-radius: 4px;
+  padding: 0.15em 0.6em;
+  font-size: 0.8em;
+  cursor: pointer;
+  margin-right: 0.25rem;
 }
-
+.bibtex-popup-link:hover {
+  background: #1a73e8;
+  color: #ffffff;
+}
 /* full-screen dark background */
 #bibtex-overlay {
   display: none;
