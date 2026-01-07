@@ -44,8 +44,8 @@ My work combines coarse-grained molecular dynamics, continuum and field-theoreti
     <h3>Work</h3>
     <p>
       Postdoc, CNRS, Université Paris-Saclay, Dec 2025 - <br>
-      Email^1: <a href="mailto:subhadip.biswas@cnrs.fr">subhadip.biswas@cnrs.fr</a><br><br>
-      Email^2: <a href="mailto:subhadip.biswas@universite-paris-saclay.fr">subhadip.biswas@universite-paris-saclay.fr</a><br>
+      Email<sup>1</sup>: <a href="mailto:subhadip.biswas@cnrs.fr">subhadip.biswas@cnrs.fr</a><br><br>
+      Email<sup>2</sup>: <a href="mailto:subhadip.biswas@universite-paris-saclay.fr">subhadip.biswas@universite-paris-saclay.fr</a><br>
       <!-- Phone: +1 (515) xxx xxxx<br> -->
       Laboratoire de Physique des Solides<br>
       1 rue Nicolas Appert<br>
