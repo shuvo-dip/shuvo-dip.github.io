@@ -53,13 +53,27 @@ author_profile: true
       box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
     }
     .highlight img {
-      width: 200px;
+      width: 250px;
       border-radius: 5px;
     }
     .highlight video {
       width: 160px;
       border-radius: 5px;
     }
+    .lightbox-thumb {
+      max-width: 100%;
+      max-height: 100px;
+      cursor: zoom-in;
+      border: 1px solid #ccc;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .lightbox-thumb:hover {
+      transform: scale(1.03);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      z-index: 1;
+    }
+
     details {
       background: #fff;
       border: 1px solid #ccc;
@@ -112,7 +126,7 @@ author_profile: true
   <div class="section">
     <h2>Featured Works</h2>
 
-    <div class="highlight">
+    <div class="lightbox-thumb">
       <img src="/images/publications/6_2024_prxlife_biswas.gif"></img>
       <div>
         <h3>Molecular Drivers of Aging in Biomolecular Condensates</h3>
@@ -121,15 +135,14 @@ author_profile: true
       </div>
     </div>
 
-  <div class="highlight">
-    <img src="/images/publications/7_2025_ploscompbio_biswas.PNG"></img>
-  </div>
+    <div class="highlight">
+      <img src="/images/publications/7_2025_ploscompbio_biswas.PNG"></img>
+      <div>
         <h3>Energy Landscapes of Stickers & Spacers</h3>
         <p><strong>S. Biswas</strong>, D.A. Potoyan (PLOS Comp. Bio., 2025)</p>
         <a href="https://doi.org/10.1371/journal.pcbi.1012826" target="_blank">Read More →</a>
       </div>
     </div>
-  </div>
 
   <div class="section">
     <h2>Recent Talks</h2>
