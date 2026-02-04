@@ -51,10 +51,19 @@ author_profile: true
       padding: 1rem;
       border-radius: 10px;
       box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+      max-height: 10px;
+      cursor: zoom-in;
+      border: 1px solid #ccc;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
     .highlight img {
       width: 250px;
       border-radius: 5px;
+    }
+    .highlight:hover {
+      transform: scale(1.03);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      z-index: 1;
     }
     .highlight video {
       width: 160px;
@@ -126,7 +135,7 @@ author_profile: true
   <div class="section">
     <h2>Featured Works</h2>
 
-    <div class="lightbox-thumb">
+    <div class="highlight">
       <img src="/images/publications/6_2024_prxlife_biswas.gif"></img>
       <div>
         <h3>Molecular Drivers of Aging in Biomolecular Condensates</h3>
