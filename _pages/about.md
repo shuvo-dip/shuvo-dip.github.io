@@ -19,7 +19,7 @@ My work combines coarse-grained molecular dynamics, continuum and field-theoreti
 <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-top: 3rem; font-size: 0.85em; line-height: 1.0;">
 
   <!-- Column 1 (25%) -->
-  <div style="flex: 1; min-width: 160px;">
+  <div style="flex: 1; min-width: 130px;">
     <h3 style="margin: 0;">Research Interests</h3>
     <ul style="margin: 0; padding-left: 1rem;">
       <li>Soft Matter Physics</li>
@@ -33,7 +33,7 @@ My work combines coarse-grained molecular dynamics, continuum and field-theoreti
   </div>
 
   <!-- Column 2 (25%) -->
-  <div style="flex: 1; min-width: 160px;">
+  <div style="flex: 1; min-width: 130px;">
     <h3 style="margin: 0;">Education</h3>
     <ul style="margin: 0; padding-left: 1rem;">
       <li>PhD in Physics, 2022, <a href="https://etheses.whiterose.ac.uk/id/eprint/30490/">Thesis</a>, <br> <a href="https://www.sheffield.ac.uk/mps">The University of Sheffield</a>, UK</li>
@@ -43,7 +43,7 @@ My work combines coarse-grained molecular dynamics, continuum and field-theoreti
   </div>
 
   <!-- Column 3 (50%) -->
-  <div style="flex: 1; min-width: 350px;">
+  <div style="flex: 1; min-width: 400px;">
     <h3 style="margin: 0;">Work</h3>
     <p style="margin: 0;">
       Postdoc, CNRS, Université Paris-Saclay, Dec 2025 - <br>
