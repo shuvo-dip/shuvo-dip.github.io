@@ -19,7 +19,7 @@ My work combines coarse-grained molecular dynamics, continuum and field-theoreti
 <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-top: 3rem; font-size: 0.85em; line-height: 1.0;">
 
   <!-- Column 1 (25%) -->
-  <div style="flex: 0 0 25%; min-width: 200px;">
+  <div style="flex: 1; min-width: 160px;">
     <h3 style="margin: 0;">Research Interests</h3>
     <ul style="margin: 0; padding-left: 1rem;">
       <li>Soft Matter Physics</li>
@@ -33,7 +33,7 @@ My work combines coarse-grained molecular dynamics, continuum and field-theoreti
   </div>
 
   <!-- Column 2 (25%) -->
-  <div style="flex: 0 0 25%; min-width: 200px;">
+  <div style="flex: 1; min-width: 160px;">
     <h3 style="margin: 0;">Education</h3>
     <ul style="margin: 0; padding-left: 1rem;">
       <li>PhD in Physics, 2022, <a href="https://etheses.whiterose.ac.uk/id/eprint/30490/">Thesis</a>, <br> <a href="https://www.sheffield.ac.uk/mps">The University of Sheffield</a>, UK</li>
@@ -43,11 +43,11 @@ My work combines coarse-grained molecular dynamics, continuum and field-theoreti
   </div>
 
   <!-- Column 3 (50%) -->
-  <div style="flex: 0 0 50%; min-width: 300px;">
+  <div style="flex: 1; min-width: 350px;">
     <h3 style="margin: 0;">Work</h3>
     <p style="margin: 0;">
       Postdoc, CNRS, Université Paris-Saclay, Dec 2025 - <br>
-      Email<sup>1</sup>: <a href="mailto:subhadip.biswas@cnrs.fr">subhadip.biswas@cnrs.fr</a><br><br>
+      Email<sup>1</sup>: <a href="mailto:subhadip.biswas@cnrs.fr">subhadip.biswas@cnrs.fr</a><br>
       Email<sup>2</sup>: <a href="mailto:subhadip.biswas@universite-paris-saclay.fr">subhadip.biswas@universite-paris-saclay.fr</a><br>
       Laboratoire de Physique des Solides<br>
       1 rue Nicolas Appert<br>
