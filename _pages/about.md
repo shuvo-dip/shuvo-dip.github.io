@@ -46,15 +46,15 @@ My work combines coarse-grained molecular dynamics, continuum and field-theoreti
   <div style="flex: 1; min-width: 400px;">
     <h3 style="margin: 0;">Work</h3>
       <p style="margin: 0;">
-      Postdoc: <a href="https://www.ics-cnrs.unistra.fr/equipe-tsp.html">ICS, TSP, CNRS</a>, Université de Strasbourg, May 2026 - <br>
+      [4] Postdoc: <a href="https://www.ics-cnrs.unistra.fr/equipe-tsp.html">ICS, TSP, CNRS</a>, Université de Strasbourg, May 2026 - <br>
       Email<sup>1</sup>: <a href="mailto:subhadip.biswas@cnrs.fr">subhadip.biswas@cnrs.fr</a><br>
       Email<sup>2</sup>: <a href="mailto:subhadip.biswas@ics-cnrs.unistra.fr">subhadip.biswas@ics-cnrs.unistra.fr</a><br>
       Institut Charles Sadron<br>
       B150, 23 Rue du Loess, 67200 <br>
       Strasbourg, France<br>
     </p>
-    <p style="margin: 0;">
-      Postdoc: LPS, CNRS, Université Paris-Saclay, Dec 2025 - Apr 2026 <br>
+    <p style="margin-top: 0.5rem;">
+      [3] Postdoc: LPS, CNRS, Université Paris-Saclay, Dec 2025 - Apr 2026 <br>
       Email<sup>1</sup>: <a href="mailto:subhadip.biswas@cnrs.fr">subhadip.biswas@cnrs.fr</a><br>
       Email<sup>2</sup>: <a href="mailto:subhadip.biswas@universite-paris-saclay.fr">subhadip.biswas@universite-paris-saclay.fr</a><br>
       Laboratoire de Physique des Solides<br>
@@ -62,13 +62,13 @@ My work combines coarse-grained molecular dynamics, continuum and field-theoreti
       91405 Orsay Cedex, France<br>
     </p>
     <p style="margin-top: 0.5rem;">
-      Postdoc: <a href="https://group.chem.iastate.edu/Potoyan/Group.html">Iowa State University</a>, April 2023 - Nov 2025 <br>
+      [2] Postdoc: <a href="https://group.chem.iastate.edu/Potoyan/Group.html">Iowa State University</a>, April 2023 - Nov 2025 <br>
       Email: <a href="mailto:subhadip@iastate.edu">subhadip@iastate.edu</a><br>
       Office: 1605 Gilman Hall, Department of Chemistry, <br>
       Iowa State University, Ames IA USA
     </p>
     <p style="margin-top: 0.5rem;">
-      Postdoc: The University of Sheffield, Jan 2022 - Mar 2023 <br>
+      [1] Postdoc: The University of Sheffield, Jan 2022 - Mar 2023 <br>
       Email: <a href="mailto:subhadip.biswas@sheffield.ac.uk">subhadip.biswas@sheffield.ac.uk</a><br>
       Office: Hicks Building, Department of Physics & Astronomy, <br>
       Sheffield, UK
