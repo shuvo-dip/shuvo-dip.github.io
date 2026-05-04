@@ -24,10 +24,11 @@ author:
   avatar           : "profile.jpg"
   name             : "Subhadip Biswas"
   pronouns:
-  bio              : 'Postdoctoral Research Associate, <a href="https://equipes.lps.u-psud.fr/theorie/members-2/" target="_blank">@LPS</a>, Soft Matter Physics'
+  bio              : 'Postdoctoral Research Associate, <a href="https://www.ics-cnrs.unistra.fr/equipe-tsp-membres.html" target="_blank">@LPS</a>, Théorie et Simulation des Polymères'
+  #bio              : 'Postdoctoral Research Associate, <a href="https://equipes.lps.u-psud.fr/theorie/members-2/" target="_blank">@LPS</a>, Soft Matter Physics'
   #bio              : 'Postdoctoral Research Associate , <a href="https://group.chem.iastate.edu/Potoyan/index.html" target="_blank">@Potoyan Lab</a>, Soft Matter Biophysics'
-  location         : "Orsay, France" #"Ames, IA, USA"
-  employer         : "CNRS, Université Paris-Saclay" #"Iowa State University"
+  location         : "Srasbourg, France" #"Orsay, France" #"Ames, IA, USA"
+  employer         : "Institut Charles Sadron, CNRS, Université de Strasbour" #"Université Paris-Saclay" #"Iowa State University"
   uri              : # URL
   email            : "subhadip.biswas@cnrs.fr" #"subhadip.biswas@universite-paris-saclay.fr"  "subhadip@iastate.edu" 
 
@@ -68,7 +69,7 @@ author:
   steam            : # Username
   telegram         : # URL
   tumblr           : # Username
-  twitter          : "subhadip_shuvo"# Username for X / Twitter
+  twitter          : "subhadip_shuvo" # Username for X / Twitter
   vine             : # Username
   weibo            : # Username
   wikipedia        : # Username
