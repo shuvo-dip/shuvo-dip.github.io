@@ -6,57 +6,686 @@ author_profile: true
 ---
 
 <style>
-.course-box {
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.08);
-  padding: 1em;
-  margin-bottom: 1.5em;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.course-box:hover {
-  transform: translateY(-4px);
-  box-shadow: 4px 6px 15px rgba(0,0,0,0.12);
-}
-.course-title {
-  font-weight: 600;
-  font-size: 1.05em;
-  font-family: Georgia, serif;
-  margin-bottom: 0.2em;
-}
-.course-meta {
-  font-size: 0.9em;
-  color: #666;
-  margin-bottom: 0.4em;
-}
-.course-description {
-  font-size: 0.95em;
-  color: #444;
-  line-height: 1.5em;
-}
+  /* =========================================================
+     General page text
+     ========================================================= */
+
+  .teaching-intro {
+    max-width: 780px;
+    margin: 0 0 1.8rem;
+    color: #555;
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+
+  .teaching-section {
+    margin-top: 2.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .teaching-section h2 {
+    margin-bottom: 0.35rem;
+    font-size: 1.35rem;
+  }
+
+  .section-subtitle {
+    margin-top: 0;
+    margin-bottom: 1.35rem;
+    color: #777;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  /* =========================================================
+     Live course-material cards
+     ========================================================= */
+
+  .materials-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    width: 100%;
+    margin: 1.2rem 0 2.4rem;
+  }
+
+  .material-card {
+    position: relative;
+    width: 100%;
+    padding: 1.15rem;
+    overflow: hidden;
+
+    border: 1px solid rgba(120, 120, 120, 0.25);
+    border-radius: 13px;
+
+    background:
+      linear-gradient(
+        145deg,
+        rgba(46, 134, 222, 0.065),
+        rgba(255, 255, 255, 0.02)
+      );
+
+    box-shadow:
+      0 4px 13px rgba(0, 0, 0, 0.055);
+
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .material-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(46, 134, 222, 0.48);
+
+    box-shadow:
+      0 9px 22px rgba(0, 0, 0, 0.095);
+  }
+
+  .material-card::after {
+    content: "";
+    position: absolute;
+    top: -70px;
+    right: -55px;
+    width: 135px;
+    height: 135px;
+
+    border-radius: 50%;
+    background: rgba(46, 134, 222, 0.08);
+
+    pointer-events: none;
+  }
+
+  .material-content {
+    position: relative;
+    z-index: 1;
+
+    display: grid;
+    grid-template-columns:
+      minmax(0, 1.05fr)
+      minmax(250px, 0.95fr);
+
+    gap: 1.35rem;
+    align-items: center;
+  }
+
+  .material-text {
+    min-width: 0;
+  }
+
+  .material-top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.7rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .material-icon {
+    display: grid;
+    place-items: center;
+
+    width: 43px;
+    height: 43px;
+
+    border-radius: 10px;
+    background: #2e86de;
+    color: #fff;
+
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+
+    box-shadow:
+      0 4px 11px rgba(46, 134, 222, 0.24);
+  }
+
+  .material-status {
+    padding: 0.24rem 0.6rem;
+
+    border-radius: 999px;
+    background: rgba(35, 122, 59, 0.12);
+    color: #237a3b;
+
+    font-size: 0.69rem;
+    font-weight: 700;
+    letter-spacing: 0.035em;
+    text-transform: uppercase;
+  }
+
+  .material-title {
+    margin: 0 0 0.55rem;
+    font-size: 1.22rem;
+    line-height: 1.3;
+  }
+
+  .material-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .material-title a:hover {
+    color: #2e86de;
+  }
+
+  .material-description {
+    margin: 0 0 1rem;
+    color: #555;
+    font-size: 0.94rem;
+    line-height: 1.55;
+  }
+
+  .material-button {
+    display: inline-block;
+    padding: 0.5rem 0.82rem;
+
+    border-radius: 7px;
+    background: #2e86de;
+    color: #fff !important;
+
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-decoration: none !important;
+
+    transition:
+      background 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .material-button:hover {
+    background: #1f6fbd;
+    transform: translateY(-1px);
+  }
+
+  /* =========================================================
+     Live webpage preview
+     ========================================================= */
+
+  .material-preview {
+    position: relative;
+    width: 100%;
+    height: 275px;
+    overflow: hidden;
+
+    border: 1px solid rgba(120, 120, 120, 0.28);
+    border-radius: 10px;
+    background: #fff;
+
+    box-shadow:
+      0 5px 16px rgba(0, 0, 0, 0.085);
+  }
+
+  .material-iframe {
+    display: block;
+
+    width: 180%;
+    height: 495px;
+
+    border: 0;
+
+    transform: scale(0.556);
+    transform-origin: top left;
+
+    pointer-events: none;
+  }
+
+  .material-preview-link {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+  }
+
+  .material-preview-label {
+    position: absolute;
+    right: 0.6rem;
+    bottom: 0.6rem;
+    z-index: 4;
+
+    padding: 0.27rem 0.52rem;
+
+    border-radius: 6px;
+    background: rgba(20, 20, 20, 0.78);
+    color: #fff;
+
+    font-size: 0.68rem;
+    line-height: 1.2;
+
+    pointer-events: none;
+  }
+
+  /* =========================================================
+     Teaching-assistant experience
+     ========================================================= */
+
+  .teaching-position {
+    margin: 0 0 1.25rem;
+    color: #555;
+    font-size: 0.94rem;
+    line-height: 1.55;
+  }
+
+  .course-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .course-box {
+    padding: 0.95rem 1.05rem;
+
+    border: 1px solid rgba(120, 120, 120, 0.28);
+    border-radius: 9px;
+    background: rgba(255, 255, 255, 0.02);
+
+    box-shadow:
+      0 2px 7px rgba(0, 0, 0, 0.055);
+
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .course-box:hover {
+    transform: translateY(-3px);
+    border-color: rgba(46, 134, 222, 0.42);
+
+    box-shadow:
+      0 6px 15px rgba(0, 0, 0, 0.095);
+  }
+
+  .course-title {
+    margin-bottom: 0.25rem;
+
+    font-size: 1.02rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .course-description {
+    margin: 0;
+    color: #555;
+
+    font-size: 0.91rem;
+    line-height: 1.5;
+  }
+
+  /* =========================================================
+     Responsive layout
+     ========================================================= */
+
+  @media (max-width: 850px) {
+    .material-content {
+      grid-template-columns: 1fr;
+    }
+
+    .material-preview {
+      order: -1;
+      height: 255px;
+    }
+
+    .material-iframe {
+      width: 190%;
+      height: 485px;
+      transform: scale(0.526);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .material-card {
+      padding: 0.95rem;
+    }
+
+    .material-preview {
+      height: 220px;
+    }
+
+    .material-iframe {
+      width: 220%;
+      height: 485px;
+      transform: scale(0.455);
+    }
+
+    .material-title {
+      font-size: 1.1rem;
+    }
+
+    .material-description {
+      font-size: 0.9rem;
+    }
+
+    .material-button {
+      display: block;
+      text-align: center;
+    }
+
+    .course-title {
+      font-size: 0.98rem;
+    }
+  }
 </style>
 
-<p><em>Graduate Teaching Assistant, Department of Physics and Astronomy,<br>
-The University of Sheffield, UK</em></p>
 
-<div class="course-box">
-  <div class="course-title">PHY250 Physics — Tutor (2018–2019)</div>
-  <div class="course-description">
-    Electromagnetic Theory, Quantum Mechanics, Relativity, Classical Mechanics, <em>etc.</em>
+<p class="teaching-intro">
+  Open teaching materials and tutorials in theoretical physics and
+  computational molecular simulation, together with previous university
+  teaching experience.
+</p>
+
+
+<section class="teaching-section">
+
+  <h2>Open Course Materials</h2>
+
+  <p class="section-subtitle">
+    Interactive course notes and tutorials available directly through the
+    browser.
+  </p>
+
+
+  <div class="materials-list">
+
+    <!-- =====================================================
+         Quantum Mechanics
+         ===================================================== -->
+
+    <article class="material-card">
+
+      <div class="material-content">
+
+        <div class="material-text">
+
+          <div class="material-top-row">
+
+            <div class="material-icon" aria-hidden="true">
+              QM
+            </div>
+
+            <span class="material-status">
+              Live
+            </span>
+
+          </div>
+
+          <h3 class="material-title">
+            <a
+              href="https://shuvo-dip.github.io/quantum-mechanics-book/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Introduction to Quantum Mechanics
+            </a>
+          </h3>
+
+          <p class="material-description">
+            Teaching materials covering the uncertainty principle,
+            harmonic oscillator, particle in a box, probability, and
+            foundational concepts in quantum mechanics.
+          </p>
+
+          <a
+            class="material-button"
+            href="https://shuvo-dip.github.io/quantum-mechanics-book/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open course →
+          </a>
+
+        </div>
+
+
+        <div class="material-preview">
+
+          <iframe
+            class="material-iframe"
+            src="https://shuvo-dip.github.io/quantum-mechanics-book/"
+            title="Live preview of Introduction to Quantum Mechanics"
+            loading="lazy"
+            scrolling="no"
+          ></iframe>
+
+          <a
+            class="material-preview-link"
+            href="https://shuvo-dip.github.io/quantum-mechanics-book/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open Introduction to Quantum Mechanics"
+          ></a>
+
+          <span class="material-preview-label">
+            Live preview
+          </span>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- =====================================================
+         Statistical Physics
+         ===================================================== -->
+
+    <article class="material-card">
+
+      <div class="material-content">
+
+        <div class="material-text">
+
+          <div class="material-top-row">
+
+            <div class="material-icon" aria-hidden="true">
+              SP
+            </div>
+
+            <span class="material-status">
+              Live
+            </span>
+
+          </div>
+
+          <h3 class="material-title">
+            <a
+              href="https://shuvo-dip.github.io/statistical-physics-course/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Introduction to Statistical Physics
+            </a>
+          </h3>
+
+          <p class="material-description">
+            Teaching materials introducing entropy, statistical ensembles,
+            the ideal gas, Gibbs paradox, and core ideas in statistical
+            mechanics.
+          </p>
+
+          <a
+            class="material-button"
+            href="https://shuvo-dip.github.io/statistical-physics-course/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open course →
+          </a>
+
+        </div>
+
+
+        <div class="material-preview">
+
+          <iframe
+            class="material-iframe"
+            src="https://shuvo-dip.github.io/statistical-physics-course/"
+            title="Live preview of Introduction to Statistical Physics"
+            loading="lazy"
+            scrolling="no"
+          ></iframe>
+
+          <a
+            class="material-preview-link"
+            href="https://shuvo-dip.github.io/statistical-physics-course/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open Introduction to Statistical Physics"
+          ></a>
+
+          <span class="material-preview-label">
+            Live preview
+          </span>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- =====================================================
+         Molecular Dynamics Simulation
+         ===================================================== -->
+
+    <article class="material-card">
+
+      <div class="material-content">
+
+        <div class="material-text">
+
+          <div class="material-top-row">
+
+            <div class="material-icon" aria-hidden="true">
+              MD
+            </div>
+
+            <span class="material-status">
+              Live
+            </span>
+
+          </div>
+
+          <h3 class="material-title">
+            <a
+              href="https://shuvo-dip.github.io/MD_Simulation/intro.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Molecular Dynamics Simulation Basics
+            </a>
+          </h3>
+
+          <p class="material-description">
+            A practical introduction to molecular simulations using LAMMPS,
+            including force fields, simulation setup, Lennard–Jones fluids,
+            polymers, gels, viscoelasticity, data analysis, and visualization.
+          </p>
+
+          <a
+            class="material-button"
+            href="https://shuvo-dip.github.io/MD_Simulation/intro.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open tutorial →
+          </a>
+
+        </div>
+
+
+        <div class="material-preview">
+
+          <iframe
+            class="material-iframe"
+            src="https://shuvo-dip.github.io/MD_Simulation/intro.html"
+            title="Live preview of Molecular Dynamics Simulation Basics"
+            loading="lazy"
+            scrolling="no"
+          ></iframe>
+
+          <a
+            class="material-preview-link"
+            href="https://shuvo-dip.github.io/MD_Simulation/intro.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open Molecular Dynamics Simulation Basics"
+          ></a>
+
+          <span class="material-preview-label">
+            Live preview
+          </span>
+
+        </div>
+
+      </div>
+
+    </article>
+
   </div>
-</div>
 
-<div class="course-box">
-  <div class="course-title">PHY230 Physics — Tutor (2019–2020)</div>
-  <div class="course-description">
-    Thermodynamics, Solid State Physics, Optics, Mathematical Physics, <em>etc.</em>
+</section>
+
+
+<section class="teaching-section">
+
+  <h2>University Teaching Experience</h2>
+
+  <p class="teaching-position">
+    <em>
+      Graduate Teaching Assistant, Department of Physics and Astronomy,<br>
+      The University of Sheffield, UK
+    </em>
+  </p>
+
+
+  <div class="course-list">
+
+    <div class="course-box">
+
+      <div class="course-title">
+        PHY250 Physics — Tutor (2018–2019)
+      </div>
+
+      <p class="course-description">
+        Electromagnetic Theory, Quantum Mechanics, Relativity,
+        Classical Mechanics, <em>etc.</em>
+      </p>
+
+    </div>
+
+
+    <div class="course-box">
+
+      <div class="course-title">
+        PHY230 Physics — Tutor (2019–2020)
+      </div>
+
+      <p class="course-description">
+        Thermodynamics, Solid State Physics, Optics,
+        Mathematical Physics, <em>etc.</em>
+      </p>
+
+    </div>
+
+
+    <div class="course-box">
+
+      <div class="course-title">
+        PHY1001-2 Experimental Physics —
+        Assistant Lab Demonstrator (2019–2020)
+      </div>
+
+    </div>
+
+
+    <div class="course-box">
+
+      <div class="course-title">
+        PHY1001-2 Experimental Physics —
+        Assistant Lab Demonstrator (2020–2021)
+      </div>
+
+    </div>
+
   </div>
-</div>
 
-<div class="course-box">
-  <div class="course-title">PHY1001-2 Experimental Physics — Assistant Lab Demonstrator (2019–2020)</div>
-</div>
-
-<div class="course-box">
-  <div class="course-title">PHY1001-2 Experimental Physics — Assistant Lab Demonstrator (2020–2021)</div>
-</div>
+</section>
