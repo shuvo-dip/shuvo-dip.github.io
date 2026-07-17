@@ -5,45 +5,304 @@ permalink: /miscellaneous/
 author_profile: true
 ---
 
-<p>
-  A collection of browser-based scientific tools, utilities, and other
-  small projects.
+<style>
+  .misc-intro {
+    max-width: 760px;
+    margin-bottom: 2rem;
+    color: #555;
+    font-size: 1.02rem;
+    line-height: 1.7;
+  }
+
+  .tools-heading {
+    margin-top: 1.5rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .tools-subtitle {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: #777;
+    font-size: 0.95rem;
+  }
+
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(280px, 1fr)
+    );
+    gap: 1.4rem;
+    margin: 1.5rem 0 2.5rem;
+  }
+
+  .tool-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 270px;
+    padding: 1.45rem;
+    overflow: hidden;
+
+    border: 1px solid rgba(120, 120, 120, 0.25);
+    border-radius: 14px;
+
+    background:
+      linear-gradient(
+        145deg,
+        rgba(46, 134, 222, 0.07),
+        rgba(255, 255, 255, 0.02)
+      );
+
+    box-shadow:
+      0 4px 14px rgba(0, 0, 0, 0.06);
+
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .tool-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(46, 134, 222, 0.5);
+
+    box-shadow:
+      0 10px 24px rgba(0, 0, 0, 0.10);
+  }
+
+  .tool-card::after {
+    content: "";
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    top: -70px;
+    right: -55px;
+    border-radius: 50%;
+    background: rgba(46, 134, 222, 0.10);
+  }
+
+  .tool-top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .tool-icon {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+
+    border-radius: 11px;
+    background: #2e86de;
+    color: white;
+
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+
+    box-shadow:
+      0 5px 12px rgba(46, 134, 222, 0.25);
+  }
+
+  .tool-status {
+    padding: 0.28rem 0.65rem;
+    border-radius: 999px;
+
+    background: rgba(35, 122, 59, 0.12);
+    color: #237a3b;
+
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  .tool-card h3 {
+    margin: 0 0 0.65rem;
+    font-size: 1.35rem;
+  }
+
+  .tool-card h3 a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .tool-card h3 a:hover {
+    color: #2e86de;
+  }
+
+  .tool-description {
+    flex-grow: 1;
+    margin: 0 0 1rem;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  .tool-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .tool-tag {
+    padding: 0.24rem 0.55rem;
+    border: 1px solid rgba(120, 120, 120, 0.25);
+    border-radius: 999px;
+
+    background: rgba(127, 127, 127, 0.06);
+    color: #555;
+
+    font-size: 0.75rem;
+  }
+
+  .tool-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    align-items: center;
+  }
+
+  .tool-button {
+    display: inline-block;
+    padding: 0.56rem 0.9rem;
+    border-radius: 7px;
+
+    background: #2e86de;
+    color: white !important;
+
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-decoration: none !important;
+
+    transition:
+      background 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .tool-button:hover {
+    background: #1f6fbd;
+    transform: translateY(-1px);
+  }
+
+  .tool-button.secondary {
+    border: 1px solid rgba(120, 120, 120, 0.35);
+    background: transparent;
+    color: inherit !important;
+  }
+
+  .tool-button.secondary:hover {
+    background: rgba(127, 127, 127, 0.08);
+  }
+
+  .future-tools {
+    margin-top: 1.5rem;
+    padding: 1.1rem 1.25rem;
+
+    border-left: 4px solid #2e86de;
+    border-radius: 0 8px 8px 0;
+
+    background: rgba(46, 134, 222, 0.06);
+    color: #555;
+  }
+
+  @media (max-width: 600px) {
+    .tool-card {
+      min-height: auto;
+    }
+
+    .tool-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .tool-button {
+      text-align: center;
+    }
+  }
+</style>
+
+<p class="misc-intro">
+  A collection of browser-based scientific tools, document utilities,
+  visualization projects, and other small open-source applications.
+  These projects are designed to make common research workflows simpler,
+  faster, and more accessible.
 </p>
 
-<hr>
+<h2 class="tools-heading">Browser Tools</h2>
 
-<h2>Scientific and Document Tools</h2>
+<p class="tools-subtitle">
+  Free tools that run directly in a modern web browser.
+</p>
 
-<div style="
-  border: 1px solid #d9d9d9;
-  border-radius: 10px;
-  padding: 1.2rem 1.4rem;
-  margin: 1.2rem 0;
-  background: #fafafa;
-">
-  <h3 style="margin-top: 0;">
-    <a
-      href="https://shuvo-dip.github.io/pdf-slicer/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      PDF Slicer
-    </a>
-  </h3>
+<div class="tools-grid">
 
-  <p>
-    Slice large-format PDF posters into correctly sized printable sheets.
-    PDF processing occurs locally inside the browser, so the uploaded
-    document is not sent to a server.
-  </p>
+  <!-- PDF Slicer -->
+  <article class="tool-card">
 
-  <p>
-    <a
-      href="https://shuvo-dip.github.io/pdf-slicer/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Open PDF Slicer →
-    </a>
-  </p>
+    <div class="tool-top-row">
+      <div class="tool-icon" aria-hidden="true">
+        PDF
+      </div>
+
+      <span class="tool-status">
+        Live
+      </span>
+    </div>
+
+    <h3>
+      <a
+        href="https://shuvo-dip.github.io/pdf-slicer/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        PDF Slicer
+      </a>
+    </h3>
+
+    <p class="tool-description">
+      Slice large-format scientific posters and other PDF documents into
+      correctly sized printable sheets. The document is processed entirely
+      inside the browser and is never uploaded to a server.
+    </p>
+
+    <div class="tool-tags">
+      <span class="tool-tag">Local processing</span>
+      <span class="tool-tag">Privacy friendly</span>
+      <span class="tool-tag">A0–A5</span>
+      <span class="tool-tag">Vector PDF</span>
+    </div>
+
+    <div class="tool-actions">
+      <a
+        class="tool-button"
+        href="https://shuvo-dip.github.io/pdf-slicer/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Open tool →
+      </a>
+
+      <a
+        class="tool-button secondary"
+        href="https://github.com/shuvo-dip/pdf-slicer"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Source code
+      </a>
+    </div>
+
+  </article>
+
+</div>
+
+<div class="future-tools">
+  <strong>More projects are coming.</strong>
+  Future scientific utilities and visualization tools will be added to
+  this page as they become available.
 </div>
