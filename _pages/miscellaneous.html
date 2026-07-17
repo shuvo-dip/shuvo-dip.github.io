@@ -6,9 +6,13 @@ author_profile: true
 ---
 
 <style>
+  /* =========================================================
+     Page introduction
+     ========================================================= */
+
   .misc-intro {
-    max-width: 760px;
-    margin-bottom: 2rem;
+    max-width: 820px;
+    margin: 0 0 2rem;
     color: #555;
     font-size: 1.02rem;
     line-height: 1.7;
@@ -16,32 +20,36 @@ author_profile: true
 
   .tools-heading {
     margin-top: 1.5rem;
-    margin-bottom: 0.35rem;
+    margin-bottom: 0.4rem;
   }
 
   .tools-subtitle {
     margin-top: 0;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.6rem;
     color: #777;
     font-size: 0.95rem;
   }
 
-  .tools-grid {
-    display: grid;
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(280px, 1fr)
-    );
-    gap: 1.4rem;
+  /* =========================================================
+     Single-column list
+     ========================================================= */
+
+  .tools-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    width: 100%;
     margin: 1.5rem 0 2.5rem;
   }
 
+  /* =========================================================
+     Card
+     ========================================================= */
+
   .tool-card {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    min-height: 270px;
-    padding: 1.45rem;
+    width: 100%;
+    padding: 1.5rem;
     overflow: hidden;
 
     border: 1px solid rgba(120, 120, 120, 0.25);
@@ -64,7 +72,7 @@ author_profile: true
   }
 
   .tool-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-3px);
     border-color: rgba(46, 134, 222, 0.5);
 
     box-shadow:
@@ -74,13 +82,66 @@ author_profile: true
   .tool-card::after {
     content: "";
     position: absolute;
-    width: 130px;
-    height: 130px;
-    top: -70px;
-    right: -55px;
+    top: -75px;
+    right: -60px;
+    width: 145px;
+    height: 145px;
+
     border-radius: 50%;
-    background: rgba(46, 134, 222, 0.10);
+    background: rgba(46, 134, 222, 0.09);
+
+    pointer-events: none;
   }
+
+  /* =========================================================
+     Temporary comparison label
+     Remove these labels after choosing a design
+     ========================================================= */
+
+  .design-label {
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding: 0.3rem 0.65rem;
+
+    border-radius: 999px;
+    background: rgba(46, 134, 222, 0.10);
+    color: #1f6fbd;
+
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  /* =========================================================
+     Two-column content inside an individual card
+     ========================================================= */
+
+  .tool-card-content {
+    position: relative;
+    z-index: 1;
+
+    display: grid;
+    grid-template-columns:
+      minmax(0, 1.15fr)
+      minmax(260px, 0.85fr);
+
+    gap: 1.7rem;
+    align-items: center;
+  }
+
+  .tool-card-text {
+    min-width: 0;
+  }
+
+  /* The first card has no image */
+  .tool-card-content.text-only {
+    display: block;
+    max-width: 760px;
+  }
+
+  /* =========================================================
+     Header row
+     ========================================================= */
 
   .tool-top-row {
     display: flex;
@@ -93,6 +154,7 @@ author_profile: true
   .tool-icon {
     display: grid;
     place-items: center;
+
     width: 48px;
     height: 48px;
 
@@ -100,9 +162,9 @@ author_profile: true
     background: #2e86de;
     color: white;
 
-    font-size: 1.35rem;
+    font-size: 1.05rem;
     font-weight: 700;
-    letter-spacing: -0.05em;
+    letter-spacing: -0.04em;
 
     box-shadow:
       0 5px 12px rgba(46, 134, 222, 0.25);
@@ -110,8 +172,8 @@ author_profile: true
 
   .tool-status {
     padding: 0.28rem 0.65rem;
-    border-radius: 999px;
 
+    border-radius: 999px;
     background: rgba(35, 122, 59, 0.12);
     color: #237a3b;
 
@@ -121,9 +183,13 @@ author_profile: true
     text-transform: uppercase;
   }
 
+  /* =========================================================
+     Text
+     ========================================================= */
+
   .tool-card h3 {
     margin: 0 0 0.65rem;
-    font-size: 1.35rem;
+    font-size: 1.4rem;
   }
 
   .tool-card h3 a {
@@ -136,29 +202,14 @@ author_profile: true
   }
 
   .tool-description {
-    flex-grow: 1;
-    margin: 0 0 1rem;
+    margin: 0 0 1.2rem;
     color: #555;
-    line-height: 1.6;
+    line-height: 1.65;
   }
 
-  .tool-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.45rem;
-    margin-bottom: 1.2rem;
-  }
-
-  .tool-tag {
-    padding: 0.24rem 0.55rem;
-    border: 1px solid rgba(120, 120, 120, 0.25);
-    border-radius: 999px;
-
-    background: rgba(127, 127, 127, 0.06);
-    color: #555;
-
-    font-size: 0.75rem;
-  }
+  /* =========================================================
+     Buttons
+     ========================================================= */
 
   .tool-actions {
     display: flex;
@@ -169,9 +220,9 @@ author_profile: true
 
   .tool-button {
     display: inline-block;
-    padding: 0.56rem 0.9rem;
-    border-radius: 7px;
+    padding: 0.58rem 0.95rem;
 
+    border-radius: 7px;
     background: #2e86de;
     color: white !important;
 
@@ -199,6 +250,94 @@ author_profile: true
     background: rgba(127, 127, 127, 0.08);
   }
 
+  /* =========================================================
+     Screenshot and live-preview container
+     ========================================================= */
+
+  .tool-card-media {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+
+    border: 1px solid rgba(120, 120, 120, 0.25);
+    border-radius: 11px;
+    background: #fff;
+
+    box-shadow:
+      0 6px 18px rgba(0, 0, 0, 0.09);
+  }
+
+  .tool-card-media-link {
+    display: block;
+    line-height: 0;
+  }
+
+  .tool-card-image {
+    display: block;
+    width: 100%;
+    height: auto;
+
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    object-position: top center;
+
+    transition: transform 0.25s ease;
+  }
+
+  .tool-card-media:hover .tool-card-image {
+    transform: scale(1.025);
+  }
+
+  .tool-card-media-label {
+    position: absolute;
+    right: 0.65rem;
+    bottom: 0.65rem;
+    z-index: 4;
+
+    padding: 0.3rem 0.58rem;
+
+    border-radius: 6px;
+    background: rgba(20, 20, 20, 0.80);
+    color: white;
+
+    font-size: 0.72rem;
+    line-height: 1.2;
+
+    pointer-events: none;
+  }
+
+  /* =========================================================
+     Live webpage preview
+     ========================================================= */
+
+  .live-preview-container {
+    height: 325px;
+  }
+
+  .tool-live-preview {
+    display: block;
+
+    width: 160%;
+    height: 520px;
+
+    border: 0;
+
+    transform: scale(0.625);
+    transform-origin: top left;
+
+    pointer-events: none;
+  }
+
+  .tool-preview-cover {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+  }
+
+  /* =========================================================
+     Future-project message
+     ========================================================= */
+
   .future-tools {
     margin-top: 1.5rem;
     padding: 1.1rem 1.25rem;
@@ -210,9 +349,33 @@ author_profile: true
     color: #555;
   }
 
+  /* =========================================================
+     Responsive layout
+     ========================================================= */
+
+  @media (max-width: 800px) {
+    .tool-card-content {
+      grid-template-columns: 1fr;
+    }
+
+    .tool-card-media {
+      order: -1;
+    }
+
+    .live-preview-container {
+      height: 280px;
+    }
+
+    .tool-live-preview {
+      width: 180%;
+      height: 505px;
+      transform: scale(0.556);
+    }
+  }
+
   @media (max-width: 600px) {
     .tool-card {
-      min-height: auto;
+      padding: 1.15rem;
     }
 
     .tool-actions {
@@ -223,238 +386,60 @@ author_profile: true
     .tool-button {
       text-align: center;
     }
-  }
-  .tool-card {
-    min-height: auto;
-  }
-  
-  .tool-card-content {
-    display: grid;
-    grid-template-columns: minmax(0, 1.15fr) minmax(240px, 0.85fr);
-    gap: 1.6rem;
-    align-items: center;
-  }
-  
-  .tool-card-text {
-    min-width: 0;
-  }
-  
-  .tool-card-media {
-    position: relative;
-    overflow: hidden;
-    border: 1px solid rgba(120, 120, 120, 0.25);
-    border-radius: 10px;
-    background: #fff;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.09);
-  }
-  
-  .tool-card-media a {
-    display: block;
-    line-height: 0;
-  }
-  
-  .tool-card-image {
-    display: block;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 10;
-    object-fit: cover;
-    object-position: top center;
-    transition: transform 0.25s ease;
-  }
-  
-  .tool-card-media:hover .tool-card-image {
-    transform: scale(1.025);
-  }
-  
-  .tool-card-media-label {
-    position: absolute;
-    right: 0.65rem;
-    bottom: 0.65rem;
-    padding: 0.28rem 0.55rem;
-    border-radius: 6px;
-    background: rgba(20, 20, 20, 0.78);
-    color: white;
-    font-size: 0.72rem;
-    line-height: 1.2;
-  }
-  
-  @media (max-width: 800px) {
-    .tool-card-content {
-      grid-template-columns: 1fr;
+
+    .live-preview-container {
+      height: 235px;
     }
-  
-    .tool-card-media {
-      order: -1;
+
+    .tool-live-preview {
+      width: 210%;
+      height: 495px;
+      transform: scale(0.476);
     }
   }
-  .tool-live-preview {
-  display: block;
-  width: 160%;
-  height: 520px;
-  border: 0;
-  transform: scale(0.625);
-  transform-origin: top left;
-  pointer-events: none;
-}
-
-.tool-card-media {
-  height: 325px;
-}
-
-.tool-preview-cover {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-}
 </style>
+
 
 <p class="misc-intro">
   A collection of browser-based scientific tools, document utilities,
   visualization projects, and other small open-source applications.
-  These projects are designed to make common research workflows simpler,
-  faster, and more accessible.
 </p>
 
 <h2 class="tools-heading">Browser Tools</h2>
 
-<div class="tools-grid">
+<p class="tools-subtitle">
+  Three possible presentation styles are shown below for comparison.
+</p>
 
-  <!-- PDF Slicer -->
-  <article class="tool-card">
 
-    <div class="tool-top-row">
-      <div class="tool-icon" aria-hidden="true">
-        PDF
-      </div>
+<div class="tools-list">
 
-      <span class="tool-status">
-        Live
-      </span>
-    </div>
-
-    <h3>
-      <a
-        href="https://shuvo-dip.github.io/pdf-slicer/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        PDF Slicer
-      </a>
-    </h3>
-
-    <p class="tool-description">
-      Slice large-format scientific posters and other PDF documents into
-      correctly sized printable sheets. The document is processed entirely
-      inside the browser.
-    </p>
-
-    <div class="tool-actions">
-      <a
-        class="tool-button"
-        href="https://shuvo-dip.github.io/pdf-slicer/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Open tool →
-      </a>
-    </div>
-
-  </article>
-
-    <article class="tool-card">
-      <div class="tool-card-content">
-        <div class="tool-card-text">
-          <div class="tool-top-row">
-            <div class="tool-icon" aria-hidden="true">
-              PDF
-            </div>
-    
-            <span class="tool-status">
-              Live
-            </span>
-          </div>
-    
-          <h3>
-            <a
-              href="https://shuvo-dip.github.io/pdf-slicer/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              PDF Slicer
-            </a>
-          </h3>
-    
-          <p class="tool-description">
-            Slice large-format scientific posters and other PDF documents
-            into correctly sized printable sheets. The document is processed
-            entirely inside the browser.
-          </p>
-    
-          <div class="tool-actions">
-    
-            <a
-              class="tool-button"
-              href="https://shuvo-dip.github.io/pdf-slicer/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Open tool →
-            </a>
-    
-            <a
-              class="tool-button secondary"
-              href="https://github.com/shuvo-dip/pdf-slicer"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Source code
-            </a>
-    
-          </div>
-    
-        </div>
-    
-        <div class="tool-card-media">
-    
-          <a
-            href="https://shuvo-dip.github.io/pdf-slicer/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open PDF Slicer"
-          >
-            <img
-              class="tool-card-image"
-              src="/images/themes/pdf-slice.png"
-              alt="PDF Slicer interface showing a poster divided into printable sheets"
-              loading="lazy"
-            />
-    
-            <span class="tool-card-media-label">
-              View application
-            </span>
-          </a>
-    
-        </div>
-    
-    </div>
-  
-  </article>
-
+  <!-- =======================================================
+       DESIGN 1: TEXT-ONLY CARD
+       ======================================================= -->
 
   <article class="tool-card">
-    <div class="tool-card-content">
+
+    <span class="design-label">
+      Design 1 — Minimal
+    </span>
+
+    <div class="tool-card-content text-only">
+
       <div class="tool-card-text">
+
         <div class="tool-top-row">
+
           <div class="tool-icon" aria-hidden="true">
             PDF
           </div>
-  
+
           <span class="tool-status">
             Live
           </span>
+
         </div>
-  
+
         <h3>
           <a
             href="https://shuvo-dip.github.io/pdf-slicer/"
@@ -464,15 +449,15 @@ author_profile: true
             PDF Slicer
           </a>
         </h3>
-  
+
         <p class="tool-description">
           Slice large-format scientific posters and other PDF documents
           into correctly sized printable sheets. The document is processed
           entirely inside the browser.
         </p>
-  
+
         <div class="tool-actions">
-  
+
           <a
             class="tool-button"
             href="https://shuvo-dip.github.io/pdf-slicer/"
@@ -481,7 +466,7 @@ author_profile: true
           >
             Open tool →
           </a>
-  
+
           <a
             class="tool-button secondary"
             href="https://github.com/shuvo-dip/pdf-slicer"
@@ -490,19 +475,182 @@ author_profile: true
           >
             Source code
           </a>
-  
+
         </div>
-  
+
       </div>
-  
+
+    </div>
+
+  </article>
+
+
+  <!-- =======================================================
+       DESIGN 2: STATIC SCREENSHOT
+       ======================================================= -->
+
+  <article class="tool-card">
+
+    <span class="design-label">
+      Design 2 — Screenshot
+    </span>
+
+    <div class="tool-card-content">
+
+      <div class="tool-card-text">
+
+        <div class="tool-top-row">
+
+          <div class="tool-icon" aria-hidden="true">
+            PDF
+          </div>
+
+          <span class="tool-status">
+            Live
+          </span>
+
+        </div>
+
+        <h3>
+          <a
+            href="https://shuvo-dip.github.io/pdf-slicer/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            PDF Slicer
+          </a>
+        </h3>
+
+        <p class="tool-description">
+          Slice large-format scientific posters and other PDF documents
+          into correctly sized printable sheets. The document is processed
+          entirely inside the browser.
+        </p>
+
+        <div class="tool-actions">
+
+          <a
+            class="tool-button"
+            href="https://shuvo-dip.github.io/pdf-slicer/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open tool →
+          </a>
+
+          <a
+            class="tool-button secondary"
+            href="https://github.com/shuvo-dip/pdf-slicer"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Source code
+          </a>
+
+        </div>
+
+      </div>
+
+
       <div class="tool-card-media">
-  
+
         <a
+          class="tool-card-media-link"
           href="https://shuvo-dip.github.io/pdf-slicer/"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Open PDF Slicer"
         >
+
+          <img
+            class="tool-card-image"
+            src="/images/themes/pdf-slice.png"
+            alt="PDF Slicer interface showing a poster divided into printable sheets"
+            loading="lazy"
+          />
+
+        </a>
+
+        <span class="tool-card-media-label">
+          View application
+        </span>
+
+      </div>
+
+    </div>
+
+  </article>
+
+
+  <!-- =======================================================
+       DESIGN 3: LIVE WEBPAGE PREVIEW
+       ======================================================= -->
+
+  <article class="tool-card">
+
+    <span class="design-label">
+      Design 3 — Live preview
+    </span>
+
+    <div class="tool-card-content">
+
+      <div class="tool-card-text">
+
+        <div class="tool-top-row">
+
+          <div class="tool-icon" aria-hidden="true">
+            PDF
+          </div>
+
+          <span class="tool-status">
+            Live
+          </span>
+
+        </div>
+
+        <h3>
+          <a
+            href="https://shuvo-dip.github.io/pdf-slicer/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            PDF Slicer
+          </a>
+        </h3>
+
+        <p class="tool-description">
+          Slice large-format scientific posters and other PDF documents
+          into correctly sized printable sheets. The document is processed
+          entirely inside the browser.
+        </p>
+
+        <div class="tool-actions">
+
+          <a
+            class="tool-button"
+            href="https://shuvo-dip.github.io/pdf-slicer/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open tool →
+          </a>
+
+          <a
+            class="tool-button secondary"
+            href="https://github.com/shuvo-dip/pdf-slicer"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Source code
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="tool-card-media live-preview-container">
+
         <iframe
           class="tool-live-preview"
           src="https://shuvo-dip.github.io/pdf-slicer/"
@@ -510,7 +658,7 @@ author_profile: true
           loading="lazy"
           scrolling="no"
         ></iframe>
-        
+
         <a
           class="tool-preview-cover"
           href="https://shuvo-dip.github.io/pdf-slicer/"
@@ -518,23 +666,21 @@ author_profile: true
           rel="noopener noreferrer"
           aria-label="Open PDF Slicer"
         ></a>
-        
+
         <span class="tool-card-media-label">
           Live preview
         </span>
-  
-          <span class="tool-card-media-label">
-            View application
-          </span>
-        </a>
+
       </div>
+
     </div>
+
   </article>
 
 </div>
 
+
 <div class="future-tools">
   <strong>More projects are coming.</strong>
-  Future scientific utilities and visualization tools will be added to
-  this page as they become available.
+  Future scientific utilities and visualization tools will be added here.
 </div>
