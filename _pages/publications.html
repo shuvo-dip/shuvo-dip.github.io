@@ -340,22 +340,34 @@ author_profile: true
 
 <style>
 .pdf-btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
   border: 1px solid #199f24;
   background: #ffffff;
   color: #199f24;
   border-radius: 4px;
-  padding: 0.15em 0.2em;
+  padding: 0.15em 0.35em;
   font-size: 0.8em;
   cursor: pointer;
   margin-right: 0.25rem;
   text-decoration: none !important;
 }
+
+.pdf-btn::before{
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background: url("oalogo.svg") center / contain no-repeat;
+  flex-shrink: 0;
+}
+
 .pdf-btn:hover{
   background: #00b80f;
   color: #ffffff;
   text-decoration: none !important;
 }
-
 .scholar-btn{
   border: 1px solid #0d43cc;
   background: #ffffff;
